@@ -1,0 +1,27 @@
+input[type=text], input[type=number], input[type=password], input[type=email]{
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    height: ($input-font-size - 0.2rem) + $fieldset-padding;
+
+    border:{
+        top: none;
+        left: none;
+        right: none;
+    }
+    background-color: transparent;
+    &:focus{ 
+        border: {
+            top: none;
+            left: none;
+            right: none;
+            bottom-color: $black;
+        }
+        background-color: transparent;
+    }
+}
+
+textarea{
+    resize: vertical;
+    min-height: 8em;
+}

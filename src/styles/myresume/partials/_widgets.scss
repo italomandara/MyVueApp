@@ -1,0 +1,17 @@
+.widget{
+    padding: $callout-padding;
+    // background-color: $light-gray;
+    color: white;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+    border: 1px solid #777;
+    // border-right: 1px solid #777;
+    // box-shadow: 0 0 $global-shadow-size $global-shadow-color;
+    // &:nth-child(odd){
+    //     border-radius: $local-radius 0 $local-radius 0;
+    // }
+    // &:nth-child(even){
+    //     border-radius: 0 $local-radius 0 $local-radius;
+    // }
+}

@@ -1,0 +1,48 @@
+body {
+    >.row,
+    > div:not(.row) > .row,
+    .off-canvas-content > .row,
+    .off-canvas-content > div:not(.row) > .row {
+    	@extend %row-template; 
+    }
+}
+
+.row.last{
+    padding-bottom: $my-minimum-row-margin !important;
+}
+
+.row-wrapper{
+    margin: 0;
+    width: 100%;
+    >.row, >.background>.row{
+        @extend %row-template;
+    }
+}
+
+.vertical-center-container{
+    white-space: nowrap;
+    &:before{
+        content: "";
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+}
+.vertical-center{
+    display: inline-block;
+    vertical-align: middle;
+    white-space: initial;
+}
+
+.place-wrap {
+    position:relative;
+    .place {
+        position:absolute;
+        &.place-top {
+            top:0;
+        }
+        &.place-bottom {
+            bottom:0;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+////
+/// @group accordion-menu
+////
+
+/// Sets if accordion menus have the default arrow styles.
+/// @type Boolean
+$accordionmenu-arrows: true;
+
+@mixin foundation-accordion-menu {
+    @if $accordionmenu-arrows {
+        .is-accordion-submenu-parent > a {
+            position: relative;
+
+            @if $accordionmenu-arrows-type == "icon" {
+                @each $acc-arr-class in $accordionmenu-arrows-icon-class {
+                    @extend #{$acc-arr-class};
+                }
+
+                &::after, &::before {
+                    // trying to guess wether or not the icon is using ::after pseudo-element
+                    margin: {
+                        left: 0 !important;
+                    };
+                }
+            }
+
+            @if $accordionmenu-arrows-type == "css-triangle" {
+                &::after {
+                    @include css-triangle(6px, $primary-color, down);
+                }
+                position: absolute;
+                top: 50%;
+                margin-top: -4px;
+                right: 1rem;
+            }
+        }
+
+        .is-accordion-submenu-parent[aria-expanded="true"] > a::after {
+            transform-origin: 50% 50%;
+            transform: scaleY(-1);
+        }
+    }
+}

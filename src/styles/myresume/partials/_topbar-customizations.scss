@@ -1,0 +1,63 @@
+.top-bar.in-grid{
+    padding: 0;
+    .row{
+        @extend %row-template;
+    }
+    .menu-text {
+         padding: {
+            left: 0;
+        }
+    }
+}
+
+.top-bar .menu > li > a{
+    color: $dark-gray;
+    font-size: rem-calc(14);
+    font-weight: $global-weight-normal;
+    &.active{
+        color: $black;
+    }
+    &:hover{
+        color: $primary-color;
+    }
+}
+
+.top-bar .is-dropdown-submenu{
+    background-color: $topbar-background;
+}
+
+.top-bar ul:not(.is-dropdown-submenu){
+    @extend .top-bar;
+    background-color: transparent !important;    
+}
+
+.top-bar-right, .top-bar-left{
+    ul.dropdown.menu{
+        padding: {
+            top: 0;
+            bottom: 0;
+        }
+    }
+}
+
+.top-bar-left{
+    ul.dropdown.menu{
+        padding: {
+            left: 0;
+        }
+    }
+}
+
+.title-bar{
+    background: $white;
+    color: $black;
+    .menu-icon::after{
+        background: $black;
+        box-shadow: 0 7px 0 $black, 0 14px 0 $black;
+    }
+}
+
+.title-bar-title{
+    @extend %has-icon-left;
+    text-align: center;
+}

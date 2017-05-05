@@ -1,0 +1,14 @@
+.button.filter{
+	@extend .hollow;
+    color: $darker-gray;
+    border-color: $darker-gray;
+    &:hover {
+	    color: $my-petrol;
+	    border-color: $my-petrol;
+    }
+}
+
+.button.filter.active{
+    color: $primary-color;
+    border-color: $primary-color;
+}

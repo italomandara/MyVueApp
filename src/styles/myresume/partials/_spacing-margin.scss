@@ -1,0 +1,102 @@
+.margin{
+    &.adjust-top{
+        margin-top: -0.4em;
+    }
+
+    &.none:not(.bottom):not(.top) {
+        margin: 0;
+    }
+
+    &.bottom{
+        margin-bottom: $my-global-margin;
+        &.none {
+            margin-bottom: 0;
+        }
+    }
+    &.top {
+        margin-top: $my-global-margin;
+        &.none {
+            margin-top: 0;
+        }
+    }
+    &.xsmall{
+        &.bottom {
+            margin-bottom: $my-global-margin/4;
+        }
+        &.top {
+            margin-top: $my-global-margin/4;
+        }
+    }
+    &.small{
+        &.bottom {
+            margin-bottom: $my-global-margin/2;
+        }
+        &.top {
+            margin-top: $my-global-margin/2;
+        }
+    }
+    &.medium{
+        &.bottom{
+            margin-bottom: $my-global-margin*1.5;
+        }
+        &.top{
+            margin-top: $my-global-margin*1.5;
+        }
+    }
+    &.large{
+        &.bottom{
+            margin-bottom: $my-global-margin*2;
+        }
+        &.top{
+            margin-top: $my-global-margin*2;
+        }
+    }
+    &.xlarge{
+        &.bottom{
+            margin-bottom: $my-global-margin*2;
+        }
+        &.top{
+            margin-top: $my-global-margin*2;
+        }
+    }
+}
+
+.pad{
+    padding: $my-global-margin;
+    &.pad-top{
+        padding: {
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+    &.pad-bottom{
+        padding: {
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+    }
+    &.pad-vertical{
+        padding: {
+            left: 0;
+            right: 0;
+        }
+    }
+    &.pad-horizontal{
+        padding: {
+            top: 0;
+            bottom: 0;
+        }
+    }
+}
+
+h1,h2,h3,h4,h5,p,.button{
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+
+li p:last-child{
+    margin-bottom: $paragraph-margin-bottom;
+}

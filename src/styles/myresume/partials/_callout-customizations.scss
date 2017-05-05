@@ -1,0 +1,32 @@
+.callout.alert {
+    background-color: transparent;
+    border-color: $alert-color;
+
+    // border-width: 3px;
+    color: $alert-color;
+}
+
+.callout.success {
+    background-color: transparent;
+    border-color: $success-color;
+
+    // border-width: 3px;
+
+    &, .close-button {
+        color: $success-color;
+    }
+}
+
+.top-callout {
+    z-index: $ui-foremost;
+
+    .callout.success {
+        border: none;
+        background-color: rgba($success-color, 0.95);
+        font-size: $small-text;
+
+        &, .close-button {
+            color: $white;
+        }
+    }
+}

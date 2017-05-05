@@ -1,0 +1,222 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('/static/scss/font/font/fontello.eot?21371692');
+  src: url('/static/scss/font/font/fontello.eot?21371692#iefix') format('embedded-opentype'),
+       url('/static/scss/font/font/fontello.woff2?21371692') format('woff2'),
+       url('/static/scss/font/font/fontello.woff?21371692') format('woff'),
+       url('/static/scss/font/font/fontello.ttf?21371692') format('truetype'),
+       url('/static/scss/font/font/fontello.svg?21371692#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?21371692#fontello') format('svg');
+  }
+}
+*/
+ 
+ .icon:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.i-mail:before { content: '\e800'; } /* '' */
+.i-heart:before { content: '\e801'; } /* '' */
+.i-star:before { content: '\e802'; } /* '' */
+.i-ok:before { content: '\e803'; } /* '' */
+.i-cancel:before { content: '\e804'; } /* '' */
+.i-plus:before { content: '\e805'; } /* '' */
+.i-pencil:before { content: '\e806'; } /* '' */
+.i-clock:before { content: '\e807'; } /* '' */
+.i-stopwatch:before { content: '\e808'; } /* '' */
+.i-hourglass:before { content: '\e809'; } /* '' */
+.i-down:before { content: '\e80a'; } /* '' */
+.i-left:before { content: '\e80b'; } /* '' */
+.i-right:before { content: '\e80c'; } /* '' */
+.i-up:before { content: '\e80d'; } /* '' */
+.i-folder-1:before { content: '\e80e'; } /* '' */
+.i-folder-open-1:before { content: '\e80f'; } /* '' */
+.i-clock-1:before { content: '\e810'; } /* '' */
+.i-flash:before { content: '\e816'; } /* '' */
+.i-cloud:before { content: '\e817'; } /* '' */
+.i-vector-pencil:before { content: '\e818'; } /* '' */
+.i-at:before { content: '\e819'; } /* '' */
+.i-female:before { content: '\e81a'; } /* '' */
+.i-male:before { content: '\e81b'; } /* '' */
+.i-king:before { content: '\e81c'; } /* '' */
+.i-anchor:before { content: '\e81d'; } /* '' */
+.i-star-empty:before { content: '\e81e'; } /* '' */
+.i-help-circled:before { content: '\e81f'; } /* '' */
+.i-help-circled-alt:before { content: '\e820'; } /* '' */
+.i-home:before { content: '\e821'; } /* '' */
+.i-attention:before { content: '\e822'; } /* '' */
+.i-attention-alt:before { content: '\e823'; } /* '' */
+.i-cog:before { content: '\e824'; } /* '' */
+.i-down-open:before { content: '\f004'; } /* '' */
+.i-up-open:before { content: '\f005'; } /* '' */
+.i-right-open:before { content: '\f006'; } /* '' */
+.i-left-open:before { content: '\f007'; } /* '' */
+.i-menu:before { content: '\f008'; } /* '' */
+.i-th-list:before { content: '\f009'; } /* '' */
+.i-th-thumb:before { content: '\f00a'; } /* '' */
+.i-th-thumb-empty:before { content: '\f00b'; } /* '' */
+.i-coverflow:before { content: '\f00c'; } /* '' */
+.i-coverflow-empty:before { content: '\f00d'; } /* '' */
+.i-pause:before { content: '\f00e'; } /* '' */
+.i-play:before { content: '\f00f'; } /* '' */
+.i-to-end:before { content: '\f010'; } /* '' */
+.i-to-start:before { content: '\f011'; } /* '' */
+.i-fast-forward:before { content: '\f012'; } /* '' */
+.i-fast-backward:before { content: '\f013'; } /* '' */
+.i-upload-cloud:before { content: '\f014'; } /* '' */
+.i-download-cloud:before { content: '\f015'; } /* '' */
+.i-data-science:before { content: '\f016'; } /* '' */
+.i-data-science-inv:before { content: '\f017'; } /* '' */
+.i-globe:before { content: '\f018'; } /* '' */
+.i-globe-inv:before { content: '\f019'; } /* '' */
+.i-math:before { content: '\f01a'; } /* '' */
+.i-math-circled-empty:before { content: '\f01b'; } /* '' */
+.i-math-circled:before { content: '\f01c'; } /* '' */
+.i-paper-plane:before { content: '\f01d'; } /* '' */
+.i-paper-plane-alt2:before { content: '\f01e'; } /* '' */
+.i-paper-plane-alt:before { content: '\f01f'; } /* '' */
+.i-color-adjust:before { content: '\f020'; } /* '' */
+.i-star-half:before { content: '\f022'; } /* '' */
+.i-star-half_empty:before { content: '\f024'; } /* '' */
+.i-ccw:before { content: '\f025'; } /* '' */
+.i-heart-broken:before { content: '\f028'; } /* '' */
+.i-hash:before { content: '\f029'; } /* '' */
+.i-reply:before { content: '\f02a'; } /* '' */
+.i-retweet:before { content: '\f02b'; } /* '' */
+.i-login:before { content: '\f02c'; } /* '' */
+.i-logout:before { content: '\f02d'; } /* '' */
+.i-download:before { content: '\f02e'; } /* '' */
+.i-upload:before { content: '\f02f'; } /* '' */
+.i-location:before { content: '\f031'; } /* '' */
+.i-monitor:before { content: '\f032'; } /* '' */
+.i-tablet:before { content: '\f033'; } /* '' */
+.i-mobile:before { content: '\f034'; } /* '' */
+.i-connected-object:before { content: '\f035'; } /* '' */
+.i-isight:before { content: '\f039'; } /* '' */
+.i-videocam:before { content: '\f03a'; } /* '' */
+.i-shuffle:before { content: '\f03b'; } /* '' */
+.i-chat:before { content: '\f03d'; } /* '' */
+.i-bell:before { content: '\f03f'; } /* '' */
+.i-movie:before { content: '\f040'; } /* '' */
+.i-ruler:before { content: '\f044'; } /* '' */
+.i-vector:before { content: '\f045'; } /* '' */
+.i-mic-off:before { content: '\f047'; } /* '' */
+.i-mic:before { content: '\f048'; } /* '' */
+.i-doc:before { content: '\f04a'; } /* '' */
+.i-dribbble-circled:before { content: '\f04f'; } /* '' */
+.i-dribbble:before { content: '\f050'; } /* '' */
+.i-facebook-circled:before { content: '\f051'; } /* '' */
+.i-facebook:before { content: '\f052'; } /* '' */
+.i-github-circled-alt:before { content: '\f053'; } /* '' */
+.i-github-circled:before { content: '\f054'; } /* '' */
+.i-github:before { content: '\f055'; } /* '' */
+.i-github-circled-alt2:before { content: '\f056'; } /* '' */
+.i-twitter-circled:before { content: '\f057'; } /* '' */
+.i-twitter:before { content: '\f058'; } /* '' */
+.i-gplus-circled:before { content: '\f059'; } /* '' */
+.i-gplus:before { content: '\f05a'; } /* '' */
+.i-linkedin-circled:before { content: '\f05b'; } /* '' */
+.i-linkedin:before { content: '\f05c'; } /* '' */
+.i-instagram:before { content: '\f05d'; } /* '' */
+.i-instagram-circled:before { content: '\f05e'; } /* '' */
+.i-user:before { content: '\f061'; } /* '' */
+.i-user-male:before { content: '\f062'; } /* '' */
+.i-user-female:before { content: '\f063'; } /* '' */
+.i-users:before { content: '\f064'; } /* '' */
+.i-folder:before { content: '\f067'; } /* '' */
+.i-folder-open:before { content: '\f068'; } /* '' */
+.i-folder-empty:before { content: '\f069'; } /* '' */
+.i-attach:before { content: '\f06a'; } /* '' */
+.i-ok-circled:before { content: '\f06d'; } /* '' */
+.i-cancel-circled:before { content: '\f06e'; } /* '' */
+.i-inbox:before { content: '\f070'; } /* '' */
+.i-trophy:before { content: '\f074'; } /* '' */
+.i-lock-open-alt:before { content: '\f075'; } /* '' */
+.i-link:before { content: '\f07b'; } /* '' */
+.i-zoom-in:before { content: '\f07e'; } /* '' */
+.i-zoom-out:before { content: '\f07f'; } /* '' */
+.i-stop:before { content: '\f080'; } /* '' */
+.i-export:before { content: '\f081'; } /* '' */
+.i-eye:before { content: '\f082'; } /* '' */
+.i-trash:before { content: '\f083'; } /* '' */
+.i-hdd:before { content: '\f084'; } /* '' */
+.i-info-circled:before { content: '\f085'; } /* '' */
+.i-info-circled-alt:before { content: '\f086'; } /* '' */
+.i-print:before { content: '\f087'; } /* '' */
+.i-fontsize:before { content: '\f088'; } /* '' */
+.i-angle-left:before { content: '\f104'; } /* '' */
+.i-angle-right:before { content: '\f105'; } /* '' */
+.i-angle-up:before { content: '\f106'; } /* '' */
+.i-angle-down:before { content: '\f107'; } /* '' */
+.i-folder-empty-1:before { content: '\f114'; } /* '' */
+.i-folder-open-empty-1:before { content: '\f115'; } /* '' */
+.i-html5:before { content: '\f13b'; } /* '' */
+.i-stackoverflow:before { content: '\f16c'; } /* '' */
+.i-linux:before { content: '\f17c'; } /* '' */
+.i-skype:before { content: '\f17e'; } /* '' */
+.i-file-code:before { content: '\f1c9'; } /* '' */
+.i-codeopen:before { content: '\f1cb'; } /* '' */
+.i-pinterest:before { content: '\f231'; } /* '' */
+.i-object-group:before { content: '\f247'; } /* '' */
+.i-object-ungroup:before { content: '\f248'; } /* '' */
+.i-safari:before { content: '\f267'; } /* '' */
+.i-chrome:before { content: '\f268'; } /* '' */
+.i-firefox:before { content: '\f269'; } /* '' */
+.i-opera:before { content: '\f26a'; } /* '' */
+.i-internet-explorer:before { content: '\f26b'; } /* '' */
+.i-edge:before { content: '\f282'; } /* '' */
+.i-comment:before { content: '\f4ac'; } /* '' */
+.i-folder-open-empty:before { content: '\f4c2'; } /* '' */
+.i-calendar:before { content: '\f4c5'; } /* '' */
+.i-newspaper:before { content: '\f4f0'; } /* '' */
+.i-camera:before { content: '\f4f7'; } /* '' */
+.i-search:before { content: '\f50d'; } /* '' */
+.i-lock-alt:before { content: '\f510'; } /* '' */
+.i-lock:before { content: '\f512'; } /* '' */
+.i-lock-open:before { content: '\f513'; } /* '' */
+.i-joystick:before { content: '\f514'; } /* '' */
+.i-fire:before { content: '\f525'; } /* '' */
+.i-chart-bar:before { content: '\f526'; } /* '' */
+.i-spread:before { content: '\f527'; } /* '' */
+.i-spinner1:before { content: '\f528'; } /* '' */
+.i-spinner2:before { content: '\f529'; } /* '' */

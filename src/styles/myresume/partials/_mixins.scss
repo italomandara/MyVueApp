@@ -1,0 +1,41 @@
+@mixin masonry($masonry-columns, $masonry-gutter)
+{
+       -moz-column-count: $masonry-columns;
+    -webkit-column-count: $masonry-columns;
+            column-count: $masonry-columns;
+       -moz-column-gap: $masonry-gutter;
+    -webkit-column-gap: $masonry-gutter;
+            column-gap: $masonry-gutter;
+}
+
+@mixin responsiveMasonry($max-columns-masonry: 4) {
+    @for $iterate-columns from $max-columns-masonry*-1 through -1 {
+        $iterate-columns: $iterate-columns*-1;
+        .large-masonry-#{$iterate-columns} {
+            @include breakpoint(large) {
+                @include masonry($iterate-columns, $my-gutter);
+            }
+        }
+        .medium-masonry-#{$iterate-columns} {
+            @include breakpoint(medium down) {
+                @include masonry($iterate-columns, $my-gutter);
+            }
+        }
+        .small-masonry-#{$iterate-columns} {
+            @include breakpoint(small only) {
+                @include masonry($iterate-columns, $my-gutter);
+            }
+        }
+    }
+}
+
+@mixin s-transition($transition, $transition2: null)
+{
+    @if ($transition2) {
+        -webkit-transition: $transition, $transition2;
+        transition: $transition, $transition2;
+    } @else {
+        -webkit-transition: $transition;
+        transition: $transition;
+    }
+}

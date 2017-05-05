@@ -1,0 +1,60 @@
+.set-text-color {
+    &.to-white{
+        color: white;
+    }
+    &.to-black{
+        color: $black;
+    }
+    &.to-gray{
+        color: $medium-gray;
+    }
+    &.to-light-gray{
+        color: $light-gray;
+    }
+    &.to-dark-gray{
+        color: $dark-gray;
+    }
+}
+
+.standout-text {
+    display: inline-block;
+    background: rgba($white, 0.50);
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    &.upper {
+        padding-bottom:0;
+    }
+    &.middle {
+        padding-top:0;
+        padding-bottom:0;
+    }
+    &.lower {
+        padding-top:0;
+    }
+}
+
+.text-left-for-small-only {
+    @include breakpoint(small only) {
+        text-align: left;
+    }
+}
+.text-center-for-small-only {
+    @include breakpoint(small only) {
+        text-align: center;
+    }
+}
+
+.no-color{
+    color: inherit;
+}
+
+.no-color-hover{
+    @extend .no-color;
+    &:hover{
+        color: inherit;
+    }
+}
+
+body{
+    // font-size: $paragraph-font-size;
+}

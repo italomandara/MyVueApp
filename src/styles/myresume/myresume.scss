@@ -1,0 +1,127 @@
+@import 'partials/placeholders';
+@import 'partials/spacing-margin';
+@import 'partials/typography';
+@import 'partials/forms';
+@import 'partials/modals';
+@import 'partials/masonry';
+@import 'partials/widgets';
+@import 'partials/generic-containers';
+@import 'partials/icons';
+@import 'partials/loaders';
+@import 'partials/topbar-customizations';
+@import 'partials/callout-customizations';
+@import 'partials/backgrounds';
+@import 'partials/orbit';
+@import 'partials/off-canvas';
+@import 'partials/buttons';
+
+.hero{
+    padding: 50px 0;
+    @include breakpoint(small only) {
+        padding: 0;
+    }
+}
+
+.opacity-filter{
+    @extend %filter-transitions;
+    opacity: 1;
+    &.invisible{
+        opacity: 0.5;
+    }
+}
+
+.normal-filter.invisible {
+    display: none;
+}
+
+.size-filter{
+    @extend %filter-transitions;
+    max-height: 1000px;
+    max-width: 100%;
+    &.invisible{
+        max-width: 0;
+        max-height: 0;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.scroll-lock{
+    overflow: hidden; 
+}
+
+.overlay{
+    position: relative;
+    z-index: -1;
+    &:before{
+        content: '';
+        @extend %fit-in-container;
+        position: absolute;
+        background-color: rgba($dark-gray,0.8);
+        z-index: -1;
+    }
+}
+
+:focus {
+    outline: none;
+}
+.captcha-container{
+    display: block;
+    width: 100%;
+    >span, >.captcha ,>input {
+        vertical-align: bottom;
+    }
+    >.captcha{
+        margin-left: $my-global-margin/4;
+        display: inline-block;
+        width: 3em;
+    }
+    >input{
+        display: inline-block;
+        width: 3em;
+        margin-bottom: 0;
+    }
+}
+
+.menu .has-tip{
+    border-bottom: none;
+}
+
+.background-video{
+    position: relative;
+    overflow: hidden;
+    video{
+        top:50%;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        left:50%;
+        z-index: 0;
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        overflow: hidden;
+    }
+}
+
+.fixed{
+    position: fixed;
+}
+
+.fit-vertical{
+    top: 0;
+    bottom: 0;
+}
+
+.fit-in{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+img {
+    width: 100%;
+    max-width: initial;
+}

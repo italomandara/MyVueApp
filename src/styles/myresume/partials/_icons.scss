@@ -1,0 +1,9 @@
+i.icon{
+    font-size: rem-calc(14);
+    &.small-icon{
+        font-size: rem-calc(12);
+    }
+    &.large-icon{
+        font-size: rem-calc(16);
+    }
+}

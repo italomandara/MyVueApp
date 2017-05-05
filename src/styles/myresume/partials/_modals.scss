@@ -1,0 +1,41 @@
+.modal-title{
+    padding: $my-global-margin/2 $my-global-margin;
+    background-color: $dark-gray;
+    color: white;
+}
+.modal-content{
+    padding: $my-global-margin/2 $my-global-margin;
+}
+.reveal-overlay{
+    text-align: center;
+}
+.reveal{
+    position: static;
+    top: 0 !important;
+    margin-top: 0 !important;
+    max-height: none !important;
+    height: 100%;
+    overflow: visible;
+    background-color: transparent;
+
+    &:focus{
+        outline: none;
+        box-shadow: none;
+    }
+
+    .row {
+        margin: {
+            left: -$my-gutter/2;
+            right: -$my-gutter/2;
+        } 
+    }
+    @extend .vertical-center-container;
+    [ng-transclude]{
+        @extend .vertical-center;
+    }
+}
+.modal-wrapper{
+    text-align: left;
+    background-color: $reveal-background;
+    position: relative;
+}
