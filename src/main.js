@@ -6,6 +6,7 @@ import App from './App'
 import router from './router'
 import VueResource from 'vue-resource'
 import store from './store'
+import marked from 'marked'
 
 Vue.use(VueResource)
 
@@ -17,6 +18,15 @@ require('what-input')
 require('foundation-sites')
 
 Vue.config.productionTip = false
+
+Vue.mixin({
+  methods: {
+    markdown: function (input) {
+      var htm = input || ''
+      return marked(htm)
+    }
+  }
+})
 
 /* eslint-disable no-new */
 new Vue({
