@@ -2,16 +2,16 @@
   <ul class="dropdown menu" data-dropdown-menu>
     <li class="menu-text">{{ nav.title }}</li>
     <li>
-      <a>Home</a>
+      <router-link to="/">Home</router-link>
     </li>
     <li>
-      <a>More</a>
+      <router-link to="/more">More</router-link>
     </li>
     <li style="position:relative" role="menuitem" class="is-dropdown-submenu-parent opens-right" aria-haspopup="true" aria-expanded="false" aria-label="Thoughts">
-      <a>Thoughts</a>
+      <router-link to="/">Thoughts</router-link>
       <ul class="menu vertical submenu nested first-sub">
-        <li class="hide-for-medium"><a>All</a></li>
-        <li v-for="item in categories"><a>{{ item.name }}</a></li>
+        <li class="hide-for-medium"><router-link to="/">All</router-link></li>
+        <li v-for="item in categories"><router-link to="/">{{ item.name }}</router-link></li>
       </ul>
     </li>
     <li>
