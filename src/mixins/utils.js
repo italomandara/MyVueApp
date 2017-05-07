@@ -1,3 +1,6 @@
+import jQuery from 'jquery'
+var $ = jQuery
+
 function slugify (item) {
   var outputString = item
     .toLowerCase()
@@ -16,4 +19,30 @@ function getCategories (model, mymodel) {
   return obj
 }
 
-export { slugify, getCategories }
+function filterEl (e) {
+  $.fn.attr_safe = function (attribute) {
+    return (typeof this.attr(attribute) !== typeof undefined || !this.attr(attribute)) ? this.attr(attribute) : 'undefined'
+  }
+  var $el = $(e.target)
+  if (typeof e !== typeof undefined) {
+    e.preventDefault()
+  }
+  $el.addClass('active').siblings('[data-filter], [data-filter-sub]').removeClass('active')
+  var category = $el.attr_safe('data-filter')
+  var subcategory = $el.attr_safe('data-filter-sub')
+  var elClass = '.category-' + category
+  var elClassSub = '.subcategory-' + subcategory
+
+  // '.subcategory-' + elClassSub
+  if (typeof category !== typeof undefined && category.toLowerCase() === 'none') {
+    $('.js-filter').removeAttr('style')
+  } else {
+    $('.js-filter').not(elClass + ', ' + elClassSub).css({
+      'opacity': 0.3
+    })
+    $(elClass + ', ' + elClassSub).removeAttr('style')
+  }
+  return true
+}
+
+export { slugify, getCategories, filterEl }

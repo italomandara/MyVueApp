@@ -22,6 +22,9 @@ export default new Vuex.Store({
   getters: {
     getPostCategories (state) {
       return getCategories(state.categories, 'post')
+    },
+    getSkillCategories (state) {
+      return getCategories(state.categories, 'skill')
     }
   }
 })

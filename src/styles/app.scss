@@ -15,7 +15,7 @@
 // @import 'myresume/overrides/accordion-menu_override';
 
 @include foundation-everything();
-// @import '~motion-ui/dist/motion-ui';
+@import '~motion-ui/dist/motion-ui';
 
 @import './myresume/myresume';
 @import './font/css/fontello.scss';

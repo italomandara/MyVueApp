@@ -1,5 +1,5 @@
 <template>
-  <div :class="['js-filter filter size-filter category-' + getSkillCategory(skill.category) + 'subcategory-' + skill.subcategory]">
+  <div :class="['js-filter filter size-filter category-' + slugify(getSkillCategory(skill.category)) + ' subcategory-' + slugify(skill.subcategory)]">
     <div class="widget secondary large">
       <h5><i :class="[skill.icon]"></i>{{ skill.name }}</h5>
       <p>{{ skill.description }}</p>
@@ -16,12 +16,16 @@
 </template>
 
 <script>
+  import { slugify } from '../mixins/utils'
   export default {
     name: 'skill',
     props: ['skill'],
     methods: {
       getSkillCategory (a) {
         return this.$store.state.categories.skill[a]
+      },
+      slugify (a) {
+        return slugify(a)
       }
     }
   }

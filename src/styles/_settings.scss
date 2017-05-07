@@ -51,7 +51,7 @@ $global-width: rem-calc(1200);
 $global-lineheight: 1.4;
 $foundation-palette: (
   primary: $my-red,
-  secondary: $my-beige,
+  secondary: #8a8a8a,
   success: $my-success,
   warning: $my-warning,
   alert: #C03647,
@@ -241,7 +241,7 @@ $breadcrumbs-item-slash: true;
 // ----------
 
 $button-padding: 0.85em 1em;
-$button-margin: 0 0 $global-margin 0;
+$button-margin: 0 $global-margin $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
@@ -447,9 +447,9 @@ $maincontent-class: 'off-canvas-content';
 // 25. Orbit
 // ---------
 
-$orbit-bullet-background: $medium-gray;
-$orbit-bullet-background-active: $dark-gray;
-$orbit-bullet-diameter: 1.2rem;
+$orbit-bullet-background: rgba($black,0.3);
+$orbit-bullet-background-active: rgba($black,0.5);
+$orbit-bullet-diameter: 0.5rem;
 $orbit-bullet-margin: 0.1rem;
 $orbit-bullet-margin-top: 0.8rem;
 $orbit-bullet-margin-bottom: 0.8rem;

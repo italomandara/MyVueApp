@@ -28,6 +28,10 @@ Vue.mixin({
   }
 })
 
+Vue.filter('date', function (value, format) {
+  return value
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
