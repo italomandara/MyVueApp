@@ -5,6 +5,6 @@ module.exports = {
   },
   destroyed () {
     // eslint-disable-next-line
-    $(this.$el).foundation.destroy()
+    $(this.$el).foundation('destroy')
   }
 }

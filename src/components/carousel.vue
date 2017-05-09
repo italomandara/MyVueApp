@@ -13,21 +13,22 @@
 
 <script>
   import job from './job.vue'
-  import jQuery from 'jquery'
   export default {
     name: 'carousel',
     components: {
       job
     },
     data () {
-      var $ = jQuery
       this.$http.get(['http://', window.location.hostname, ':8000', '/api/job/', '?format=json'].join('')).then((response) => {
         this.jobs = response.data
-        setTimeout(() => { $(this.$el).foundation() }, 1000)
       })
       return {
         jobs: []
       }
+    },
+    updated () {
+      // eslint-disable-next-line
+      $(this.$el).foundation()
     }
   }
 </script>

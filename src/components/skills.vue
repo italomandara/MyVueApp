@@ -3,7 +3,7 @@
     <div class="row">
       <h4 class="margin bottom set-text-color to-white">Skills list</h4>
       <a @click="filterEl" v-for="skill_category in skill_categories" class="button filter small" :data-filter="skill_category.slug">{{ skill_category.name }}</a>
-      <a @click="filterEl" v-for="skill_subcategory in skills_subcategories" class="button filter small" :data-filter-sub="skill_subcategory">{{ skill_subcategory }}</a>
+      <a @click="filterEl" v-for="skill_subcategory in skills_subcategories" class="button filter small" :data-filter-sub="slugify(skill_subcategory)">{{ skill_subcategory }}</a>
       <a @click="filterEl" class="button filter small active" data-filter="none">All</a>
       <div class="masonry small-masonry-1 medium-masonry-2 large-masonry-4">     
           <skill :skill="skill" v-for="skill in skills_list" :key="skill.slug"></skill>
@@ -32,11 +32,12 @@
         .filter((elem, index, self) => {
           return index === self.indexOf(elem)
         })
+        this.skill_categories = this.$store.getters.getSkillCategories
       })
       return {
         skills_list: [],
         skills_subcategories: [],
-        skill_categories: this.$store.getters.getSkillCategories
+        skill_categories: []
       }
     },
     methods: {
