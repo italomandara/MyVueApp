@@ -1,5 +1,5 @@
 <template>
-  <figure id="hero" :class="['js-non-lazy row-wrapper cover hero', nav.hero_class]" :style="{ backgroundImage: nav.hero_image, backgroundPosition: 'center center' }" :data-original="nav.hero_image">
+  <figure id="hero" :class="['js-non-lazy row-wrapper cover hero', nav.hero_class]" :style="{ backgroundImage: 'url(' + nav.hero_image + ')', backgroundPosition: 'center center' }" :data-original="nav.hero_image">
       <video autoplay preload loop v-if="nav.is_video && nav.intro.video_primary">
           <source :src="nav.intro.video_primary" type="video/mp4">
       </video>
@@ -16,9 +16,9 @@
 <script>
   export default {
     name: 'hero',
-    computed: {
-      nav () {
-        return this.$store.state.nav
+    data () {
+      return {
+        nav: this.$store.state.nav
       }
     }
   }

@@ -8,7 +8,7 @@
       <router-link to="/more">More</router-link>
     </li>
     <li style="position:relative" role="menuitem" class="is-dropdown-submenu-parent opens-right" aria-haspopup="true" aria-expanded="false" aria-label="Thoughts">
-      <router-link to="/">Thoughts</router-link>
+      <router-link to="/thoughts">Thoughts</router-link>
       <ul class="menu vertical submenu nested first-sub">
         <li class="hide-for-medium"><router-link to="/">All</router-link></li>
         <li v-for="item in categories"><router-link to="/">{{ item.name }}</router-link></li>
@@ -29,14 +29,13 @@ export default {
   ],
   name: 'menuItems',
   data () {
-    return {}
+    return {
+      nav: this.$store.state.nav
+    }
   },
   computed: {
     categories () {
       return this.$store.getters.getPostCategories
-    },
-    nav () {
-      return this.$store.state.nav
     }
   }
 }

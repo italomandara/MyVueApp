@@ -2,6 +2,9 @@ import jQuery from 'jquery'
 var $ = jQuery
 
 function slugify (item) {
+  if (typeof item === typeof undefined) {
+    return ''
+  }
   var outputString = item
     .toLowerCase()
     .replace(/[^\w ]+/g, '')
@@ -17,6 +20,16 @@ function getCategories (model, mymodel) {
     obj[idx] = {slug: slugify(cat), name: cat}
   }
   return obj
+}
+
+function getCategoryIdFromSlug (obj, value) {
+  for (var prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      if (slugify(obj[prop]) === value) {
+        return prop
+      }
+    }
+  }
 }
 
 function filterEl (e) {
@@ -45,4 +58,4 @@ function filterEl (e) {
   return true
 }
 
-export { slugify, getCategories, filterEl }
+export { slugify, getCategories, filterEl, getCategoryIdFromSlug }

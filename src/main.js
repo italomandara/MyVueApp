@@ -7,7 +7,9 @@ import router from './router'
 import VueResource from 'vue-resource'
 import store from './store'
 import marked from 'marked'
+import Vue2Filters from 'vue2-filters'
 
+Vue.use(Vue2Filters)
 Vue.use(VueResource)
 
 window.jQuery = jQuery
@@ -24,6 +26,13 @@ Vue.mixin({
     markdown: function (input) {
       var htm = input || ''
       return marked(htm)
+    },
+    static: function (input) {
+      var item = input || ''
+      var SETTINGS = {
+        STATIC_ROOT: 'http://localhost:8000/static/'
+      }
+      return [SETTINGS.STATIC_ROOT, item].join('')
     }
   }
 })

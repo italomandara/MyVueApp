@@ -26,21 +26,26 @@ export default {
   },
   name: 'home',
   data () {
+    return {
+      intro: {},
+      profile: {},
+      showDescription: false
+    }
+  },
+  beforeMount () {
+    var nav = this.$store.state.nav
     this.$http.get(['http://', window.location.hostname, ':8000', '/api/mycontent/', '?slug=intro&format=json'].join('')).then(
       (response) => {
-        this.$store.state.nav.intro = response.data[0]
+        nav.intro = response.data[0]
         this.intro = response.data[0]
       })
     this.$http.get(['http://', window.location.hostname, ':8000', '/api/mycontent/', '?slug=profile&format=json'].join('')).then(
       (response) => {
         this.profile = response.data[0]
       })
-
-    return {
-      intro: {},
-      profile: {},
-      showDescription: false
-    }
+    nav.is_video = true
+    nav.is_standard_hero = true
+    nav.hero_class = 'background-video'
   }
 }
 </script>

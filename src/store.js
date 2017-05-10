@@ -10,6 +10,7 @@ export default new Vuex.Store({
     nav: {
       is_video: true,
       is_standard_hero: true,
+      hero_image: '',
       person: {},
       intro: {},
       title: 'Navigation',
