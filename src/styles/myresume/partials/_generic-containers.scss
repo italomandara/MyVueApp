@@ -46,3 +46,12 @@ body {
         }
     }
 }
+
+.container-link {
+    display: block;
+    width: 100%;
+    color: $body-font-color;
+    &:hover, &:focus {
+        color: $body-font-color;
+    }
+}

@@ -10,8 +10,8 @@
     <li style="position:relative" role="menuitem" class="is-dropdown-submenu-parent opens-right" aria-haspopup="true" aria-expanded="false" aria-label="Thoughts">
       <router-link to="/thoughts">Thoughts</router-link>
       <ul class="menu vertical submenu nested first-sub">
-        <li class="hide-for-medium"><router-link to="/">All</router-link></li>
-        <li v-for="item in categories"><router-link to="/">{{ item.name }}</router-link></li>
+        <li class="hide-for-medium"><router-link to="/thoughts">All</router-link></li>
+        <li v-for="item in categories" :key="item.slug"><router-link :to="{ name: 'Category', params: { category: item.slug }}">{{ item.name }}</router-link></li>
       </ul>
     </li>
     <li>

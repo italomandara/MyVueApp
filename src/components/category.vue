@@ -7,30 +7,42 @@
       <div class="masonry medium-masonry-1 large-masonry-2 margin bottom">
         <postlistitem v-for="post in posts" :key="post.slug" :post="post"></postlistitem>
       </div>
+      <error :error="error"></error>
     </div>
   </div>
 </template>
 
 <script>
 import postlistitem from './postlistitem.vue'
+import error from './error.vue'
+import { slugify, getCategoryIdFromSlug } from '../mixins/utils'
 export default {
   components: {
-    postlistitem
+    postlistitem,
+    error
   },
-  name: 'thoughts',
+  name: 'category',
   data () {
     return {
       posts: [],
-      intro: {}
+      intro: {},
+      error: {}
     }
   },
   beforeMount () {
     var nav = this.$store.state.nav
-
-    this.$http.get(['http://', window.location.hostname, ':8000', '/api/post/', '?ordering=-created_at&format=json'].join('')).then(function (response) {
+    var cat = this.$route.params.category
+    var category = getCategoryIdFromSlug(this.$store.state.categories.post, cat)
+    this.$http.get(['http://', window.location.hostname, ':8000', '/api/post/', '?ordering=-created_at&category=', category, '&format=json'].join('')).then(function (response) {
       this.posts = response.data
+      if (!this.posts.data.length) {
+        this.error = {
+          title: 'Sorry,',
+          description: "couldn't find any posts in this category"
+        }
+      }
     })
-    this.$http.get(['http://', window.location.hostname, ':8000', '/api/mycontent/', '?slug=thoughts-intro&format=json'].join('')).then(function (response) {
+    this.$http.get(['http://', window.location.hostname, ':8000', '/api/mycontent/', '?slug=', slugify(cat), '&format=json'].join('')).then(function (response) {
       this.intro = response.data[0]
       nav.is_video = false
       nav.is_standard_hero = true

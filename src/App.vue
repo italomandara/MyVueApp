@@ -15,7 +15,9 @@
         <hero></hero>
         <topbar></topbar>
         <mobile-topbar></mobile-topbar>
-        <router-view></router-view>
+        <transition name="fade">
+          <router-view></router-view>
+        </transition>
       </div>
     </div>
   </div>

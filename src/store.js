@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getCategories } from './mixins/utils'
+import { getCategories, slugify } from './mixins/utils'
 
 Vue.use(Vuex)
 
@@ -26,6 +26,17 @@ export default new Vuex.Store({
     },
     getSkillCategories (state) {
       return getCategories(state.categories, 'skill')
+    },
+    getCategoriesSlugs (state) {
+      return (mymodel) => {
+        var obj = {}
+        var categories = state.categories[mymodel]
+        for (var idx in categories) {
+          var cat = categories[idx]
+          obj[idx] = {slug: slugify(cat), name: cat}
+        }
+        return obj
+      }
     }
   }
 })
