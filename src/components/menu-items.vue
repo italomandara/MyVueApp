@@ -15,27 +15,47 @@
       </ul>
     </li>
     <li>
-      <a v-if="nav.person.available" href="javascript:void(0)" @click="open()">Contact</a>
-      <a v-show="!nav.person.available" href="javascript:void(0)" class="has-tip" tooltip-placement="top" :tooltip="nav.person.unavailable_msg">Contact</a>
+      <a v-if="!nav.person.available" href="javascript:void(0)" @click="open()">Contact</a>
+      <tooltip v-else :tooltip="contactTooltip"></tooltip>
     </li>
   </ul>
 </template>
 
 <script>
+import tooltip from './tooltip.vue'
 export default {
   mixins: [
     // eslint-disable-next-line
     require ('@/mixins/foundation')
   ],
   name: 'menuItems',
+  components: {
+    tooltip
+  },
   data () {
     return {
       nav: this.$store.state.nav
     }
   },
+  methods: {
+
+  },
   computed: {
     categories () {
       return this.$store.getters.getPostCategories
+    },
+    open () {
+      return function () {
+        return ''
+      }
+    },
+    contactTooltip () {
+      return {
+        href: 'javascript:void(0)',
+        placement: 'top',
+        text: 'Contact',
+        title: this.$store.state.nav.person.unavailable_msg
+      }
     }
   }
 }

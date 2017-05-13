@@ -1,5 +1,5 @@
 <template>
-  <div v-if="error" :class="error.class">
+  <div :class="error.class">
     <h4>{{ error.title }}</h4>
     <p class="large margin bottom">{{ error.description }}</p>
   </div>

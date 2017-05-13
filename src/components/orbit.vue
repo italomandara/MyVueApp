@@ -13,9 +13,9 @@
   export default {
     name: 'orbit',
     props: ['images'],
-    updated () {
+    mounted () {
       // eslint-disable-next-line
-      $(this.$el).foundation()
+      new Foundation.Orbit($(this.$el))
     }
   }
 </script>

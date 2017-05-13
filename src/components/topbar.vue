@@ -1,6 +1,5 @@
 <template>
-  <!-- <div id="full-menu" class="small-12 hide-for-small-only" data-sticky-container> -->
-    <div class="top-bar in-grid small-12" data-sticky data-top-anchor="full-menu" data-margin-top="0">
+    <div class="top-bar in-grid small-12" data-top-anchor="full-menu" data-margin-top="0">
       <div class="row">
         <!-- <div class="top-bar-title">{{ nav.title }}</div> -->
         <div class="top-bar-left"> 
@@ -15,7 +14,6 @@
         </div>
       </div>
     </div>
-  <!-- </div> -->
 </template>
 
 <script>
@@ -40,6 +38,10 @@ export default {
     return {
       hostname: window.location.hostname
     }
+  },
+  mounted () {
+    // eslint-disable-next-line
+    new Foundation.Sticky($(this.$el))
   }
 }
 </script>

@@ -42,7 +42,7 @@ Vue.filter('date', function (value, format) {
 })
 
 /* eslint-disable no-new */
-new Vue({
+window.MyCVApp = new Vue({
   el: '#app',
   router,
   store,

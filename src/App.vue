@@ -13,11 +13,11 @@
       </div>
       <div class="off-canvas-content">
         <hero></hero>
-        <topbar></topbar>
+        <div id="full-menu" class="small-12 hide-for-small-only" data-sticky-container>
+          <topbar></topbar>
+        </div>
         <mobile-topbar></mobile-topbar>
-        <transition name="fade">
-          <router-view></router-view>
-        </transition>
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -53,6 +53,10 @@ export default {
     return {
       SETTINGS: this.$store.state.SETTINGS
     }
+  },
+  mounted () {
+    // eslint-disable-next-line
+    new Foundation.OffCanvas($(this.$el))
   }
 }
 </script>
