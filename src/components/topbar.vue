@@ -3,14 +3,7 @@
       <div class="row">
         <!-- <div class="top-bar-title">{{ nav.title }}</div> -->
         <div class="top-bar-left"> 
-<!--             <li id="00-eegg" style="position:relative" class="hide">
-              <a href="#"><i class="icon i-cog"></i> @ {{ hostname }}</a>
-              <ul class="menu vertical submenu">
-                <li><a href="javascript: void(0)" data-open="icons" data-reveal-ajax="{% url 'icons' %}" >Show Icons</a></li>
-                <li><a href="javascript: void(0)" onclick="$('body').showLoader(false);" >Open loader</a></li>
-              </ul>
-            </li> -->
-            <menu-items></menu-items>
+            <menu-items :customClass="'dropdown menu'"></menu-items>
         </div>
       </div>
     </div>

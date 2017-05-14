@@ -1,5 +1,5 @@
 <template>
-  <ul class="dropdown menu" data-dropdown-menu>
+  <ul :class="customClass" data-dropdown-menu>
     <li class="menu-text">{{ nav.title }}</li>
     <li>
       <router-link to="/">Home</router-link>
@@ -29,6 +29,7 @@ export default {
     require ('@/mixins/foundation')
   ],
   name: 'menuItems',
+  props: ['customClass'],
   components: {
     tooltip
   },

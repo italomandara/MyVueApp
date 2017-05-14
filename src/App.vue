@@ -7,9 +7,7 @@
           <span aria-hidden="true">&times;</span>
         </a>
         <!-- Menu -->
-        <ul class="mobile-ofc vertical menu">
-          <menu-items></menu-items>
-        </ul>
+        <menu-items :customClass="'mobile-ofc vertical menu'"></menu-items>
       </div>
       <div class="off-canvas-content" data-offcanvas-content>
         <hero></hero>
