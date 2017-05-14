@@ -30,7 +30,7 @@ export default {
   },
   data () {
     this.$http
-      .get(['http://', window.location.hostname, ':8000', '/api/person/', '?name=Italo&format=json'].join('')).then(
+      .get([window.DJANGO_URL, '/api/person/', '?name=Italo&format=json'].join('')).then(
         (response) => {
           this.$store.state.nav.person = response.data[0]
           this.$store.state.nav.title = [this.$store.state.nav.person.name, this.$store.state.nav.person.lastname, "'s resume"].join('')

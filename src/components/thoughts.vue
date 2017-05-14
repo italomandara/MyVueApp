@@ -27,10 +27,10 @@ export default {
   beforeMount () {
     var nav = this.$store.state.nav
 
-    this.$http.get(['http://', window.location.hostname, ':8000', '/api/post/', '?ordering=-created_at&format=json'].join('')).then(function (response) {
+    this.$http.get([window.DJANGO_URL, '/api/post/', '?ordering=-created_at&format=json'].join('')).then(function (response) {
       this.posts = response.data
     })
-    this.$http.get(['http://', window.location.hostname, ':8000', '/api/mycontent/', '?slug=thoughts-intro&format=json'].join('')).then(function (response) {
+    this.$http.get([window.DJANGO_URL, '/api/mycontent/', '?slug=thoughts-intro&format=json'].join('')).then(function (response) {
       this.intro = response.data[0]
       nav.is_video = false
       nav.is_standard_hero = true

@@ -19,7 +19,7 @@
       job
     },
     data () {
-      this.$http.get(['http://', window.location.hostname, ':8000', '/api/job/', '?format=json'].join('')).then((response) => {
+      this.$http.get([window.DJANGO_URL, '/api/job/', '?format=json'].join('')).then((response) => {
         this.jobs = response.data
       })
       return {

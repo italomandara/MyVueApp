@@ -34,7 +34,7 @@ export default {
       var nav = this.$store.state.nav
       var cat = this.$route.params.category
       var category = getCategoryIdFromSlug(this.$store.state.categories.post, cat)
-      this.$http.get(['http://', window.location.hostname, ':8000', '/api/post/', '?ordering=-created_at&category=', category, '&format=json'].join('')).then(function (response) {
+      this.$http.get([window.DJANGO_URL, '/api/post/', '?ordering=-created_at&category=', category, '&format=json'].join('')).then(function (response) {
         this.posts = response.data
         if (!this.posts.data.length) {
           this.error = {
@@ -43,7 +43,7 @@ export default {
           }
         }
       })
-      this.$http.get(['http://', window.location.hostname, ':8000', '/api/mycontent/', '?slug=', slugify(cat), '&format=json'].join('')).then(function (response) {
+      this.$http.get([window.DJANGO_URL, '/api/mycontent/', '?slug=', slugify(cat), '&format=json'].join('')).then(function (response) {
         this.intro = response.data[0]
         nav.is_video = false
         nav.is_standard_hero = false

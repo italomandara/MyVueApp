@@ -22,7 +22,7 @@
     },
     data () {
       this.$http
-      .get(['http://', window.location.hostname, ':8000', '/api/skill/', '?format=json'].join(''))
+      .get([window.DJANGO_URL, '/api/skill/', '?format=json'].join(''))
       .then((response) => {
         this.skills_list = response.data
         this.skills_subcategories = this.skills_list.map(

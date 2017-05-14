@@ -39,16 +39,16 @@ export default {
   beforeMount () {
     var nav = this.$store.state.nav
 
-    this.$http.get(['http://', window.location.hostname, ':8000', '/api/mycontent/', '?slug=achievements&format=json'].join('')).then(function (response) {
+    this.$http.get([window.DJANGO_URL, '/api/mycontent/', '?slug=achievements&format=json'].join('')).then(function (response) {
       this.achievements = response.data[0]
     })
-    this.$http.get(['http://', window.location.hostname, ':8000', '/api/course/', '?format=json'].join('')).then(function (response) {
+    this.$http.get([window.DJANGO_URL, '/api/course/', '?format=json'].join('')).then(function (response) {
       this.courses = response.data
     })
-    this.$http.get(['http://', window.location.hostname, ':8000', '/api/mycontent/', '?slug=skills&format=json'].join('')).then(function (response) {
+    this.$http.get([window.DJANGO_URL, '/api/mycontent/', '?slug=skills&format=json'].join('')).then(function (response) {
       this.skills = response.data[0]
     })
-    this.$http.get(['http://', window.location.hostname, ':8000', '/api/mycontent/', '?slug=more&format=json'].join('')).then(function (response) {
+    this.$http.get([window.DJANGO_URL, '/api/mycontent/', '?slug=more&format=json'].join('')).then(function (response) {
       this.intro = response.data[0]
       nav.is_video = false
       nav.is_standard_hero = true

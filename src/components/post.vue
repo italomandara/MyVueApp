@@ -44,7 +44,7 @@
     // },
     beforeMount () {
       var nav = this.$store.state.nav
-      this.$http.get(['http://', window.location.hostname, ':8000', '/api/post/', this.$route.params.slug, '/?format=json'].join('')).then(function (response) {
+      this.$http.get([window.DJANGO_URL, '/api/post/', this.$route.params.slug, '/?format=json'].join('')).then(function (response) {
         this.post = response.data
         nav.is_video = false
         nav.is_standard_hero = true

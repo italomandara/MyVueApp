@@ -39,13 +39,13 @@ export default {
   },
   data () {
     this.$http
-      .get(['http://', window.location.hostname, ':8000', '/api/s/', '?format=json'].join('')).then(
+      .get([window.DJANGO_URL, '/api/s/', '?format=json'].join('')).then(
           (response) => {
             this.$store.state.SETTINGS = response.data
           }
         )
     this.$http
-      .get(['http://', window.location.hostname, ':8000', '/api/categories/', '?format=json'].join('')).then(
+      .get([window.DJANGO_URL, '/api/categories/', '?format=json'].join('')).then(
         (response) => {
           this.$store.state.categories = response.data
         }

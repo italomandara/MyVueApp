@@ -16,6 +16,8 @@ Vue.use(VueResource)
 window.jQuery = jQuery
 window.$ = jQuery
 
+window.DJANGO_URL = '//localhost:8000'
+
 // require('motion-ui')
 require('what-input')
 require('foundation-sites')
@@ -36,7 +38,7 @@ Vue.mixin({
     static: function (input) {
       var item = input || ''
       var SETTINGS = {
-        STATIC_ROOT: 'http://localhost:8000/static/'
+        STATIC_ROOT: window.DJANGO_URL + '/static/'
       }
       return [SETTINGS.STATIC_ROOT, item].join('')
     }

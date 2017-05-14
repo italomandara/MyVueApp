@@ -1,6 +1,6 @@
 <template>
   <div :class="customclass">
-    <p class="set-text-color to-gray margin bottom none"><small>{{ course.start_date }} - {{ course.end_date }}</small></p>
+    <p class="set-text-color to-gray margin bottom none"><small>{{ course.start_date|date }} - {{ course.end_date|date }}</small></p>
     <strong>{{ course.title }}</strong>
     <p class="margin none">{{ course.description }}</p>
     <p class="set-text-color to-gray"><small><em>{{ course.location }}</em></small></p>

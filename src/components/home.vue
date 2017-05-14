@@ -34,12 +34,12 @@ export default {
   },
   beforeMount () {
     var nav = this.$store.state.nav
-    this.$http.get(['http://', window.location.hostname, ':8000', '/api/mycontent/', '?slug=intro&format=json'].join('')).then(
+    this.$http.get([window.DJANGO_URL, '/api/mycontent/', '?slug=intro&format=json'].join('')).then(
       (response) => {
         nav.intro = response.data[0]
         this.intro = response.data[0]
       })
-    this.$http.get(['http://', window.location.hostname, ':8000', '/api/mycontent/', '?slug=profile&format=json'].join('')).then(
+    this.$http.get([window.DJANGO_URL, '/api/mycontent/', '?slug=profile&format=json'].join('')).then(
       (response) => {
         this.profile = response.data[0]
       })
