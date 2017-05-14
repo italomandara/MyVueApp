@@ -46,7 +46,7 @@ export default {
       this.$http.get(['http://', window.location.hostname, ':8000', '/api/mycontent/', '?slug=', slugify(cat), '&format=json'].join('')).then(function (response) {
         this.intro = response.data[0]
         nav.is_video = false
-        nav.is_standard_hero = true
+        nav.is_standard_hero = false
         nav.intro = this.intro
         nav.hero_class = ''
         nav.hero_image = this.intro.image_primary || this.intro.featured_image

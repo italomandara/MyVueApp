@@ -33,7 +33,7 @@
       postTooltip () {
         return {
           placement: 'bottom',
-          title: this.post.subtitle + ' by ' + this.post.author + ' ' + this.post.created_at,
+          title: this.post.subtitle + ' by ' + this.post.author + ' ' + this.date(this.post.created_at),
           text: this.post.title,
           class: 'standout-text no-color-hover place place-top'
         }

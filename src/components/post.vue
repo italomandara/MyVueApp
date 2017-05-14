@@ -2,7 +2,7 @@
 <div class="row last">
   <div class="row">
     <p class="column margin top">Category: <span class="secondary label">{{ getPostCategory(post.category) }}</span></p>
-    <p class="column small margin bottom set-text-color to-gray"><small>Posted by {{ post.author }} on <em>{{ post.created_at }}</em></small></p>
+    <p class="column small margin bottom set-text-color to-gray"><small>Posted by {{ post.author }} on <em>{{ post.created_at|date }}</em></small></p>
     <div class="small-12 column small margin bottom">
       <div class="masonry medium-masonry-1 large-masonry-2 small margin bottom" >
       <div class="margin bottom">

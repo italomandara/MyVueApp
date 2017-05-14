@@ -56,7 +56,7 @@ export default {
   },
   mounted () {
     // eslint-disable-next-line
-    new Foundation.OffCanvas($(this.$el))
+    new Foundation.OffCanvas($('#offCanvasMenu'))
   }
 }
 </script>

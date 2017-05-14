@@ -7,6 +7,7 @@ import router from './router'
 import VueResource from 'vue-resource'
 import store from './store'
 import marked from 'marked'
+import moment from 'moment'
 import Vue2Filters from 'vue2-filters'
 
 Vue.use(Vue2Filters)
@@ -27,6 +28,11 @@ Vue.mixin({
       var htm = input || ''
       return marked(htm)
     },
+    date: function (input, options) {
+      var date = input || ''
+      var format = options || 'LL'
+      return moment(date).format(format)
+    },
     static: function (input) {
       var item = input || ''
       var SETTINGS = {
@@ -38,7 +44,8 @@ Vue.mixin({
 })
 
 Vue.filter('date', function (value, format) {
-  return value
+  format = format || 'LL'
+  return moment(value).format(format)
 })
 
 /* eslint-disable no-new */
