@@ -1,6 +1,6 @@
 <template>
   <div class="title-bar show-for-small-only">
-    <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+    <a class="menu-icon" data-toggle="offCanvasMenu"><span></span></a>
     <div class="title-bar-title">{{ nav.title }}</div>
   </div>
 </template>

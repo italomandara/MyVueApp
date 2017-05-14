@@ -1,9 +1,9 @@
 <template>
   <div id="app" class="off-canvas-content">
-    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+    <div class="off-canvas-wrapper-inner">
       <div class="off-canvas position-left" id="offCanvasMenu" data-off-canvas>
         <!-- Close button -->
-        <a class="left-off-canvas-toggle close-button" >
+        <a class="close-button" data-toggle="offCanvasMenu">
           <span aria-hidden="true">&times;</span>
         </a>
         <!-- Menu -->
@@ -11,7 +11,7 @@
           <menu-items></menu-items>
         </ul>
       </div>
-      <div class="off-canvas-content">
+      <div class="off-canvas-content" data-offcanvas-content>
         <hero></hero>
         <div id="full-menu" class="small-12 hide-for-small-only" data-sticky-container>
           <topbar></topbar>

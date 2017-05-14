@@ -17,6 +17,7 @@ window.jQuery = jQuery
 window.$ = jQuery
 
 window.DJANGO_URL = '//localhost:8000'
+// window.DJANGO_URL = '//itmandar.herokuapp.com'
 
 // require('motion-ui')
 require('what-input')
