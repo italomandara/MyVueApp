@@ -1,6 +1,6 @@
 <template>
   <ul :class="customClass" data-dropdown-menu>
-    <li class="menu-text">{{ nav.title }}</li>
+    <li v-if="showTitle" class="menu-text">{{ nav.title }}</li>
     <li>
       <router-link to="/">Home</router-link>
     </li>
@@ -15,7 +15,7 @@
       </ul>
     </li>
     <li>
-      <a v-if="!nav.person.available" href="javascript:void(0)" @click="open()">Contact</a>
+      <a v-if="nav.person.available" href="javascript:void(0)" @click="open()">Contact</a>
       <tooltip v-else :tooltip="contactTooltip"></tooltip>
     </li>
   </ul>
@@ -29,7 +29,7 @@ export default {
     require ('@/mixins/foundation')
   ],
   name: 'menuItems',
-  props: ['customClass'],
+  props: ['customClass', 'showTitle'],
   components: {
     tooltip
   },

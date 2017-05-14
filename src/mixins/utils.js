@@ -24,10 +24,8 @@ function getCategories (model, mymodel) {
 
 function getCategoryIdFromSlug (obj, value) {
   for (var prop in obj) {
-    if (obj.hasOwnProperty(prop)) {
-      if (slugify(obj[prop]) === value) {
-        return prop
-      }
+    if (slugify(obj[prop]) === value) {
+      return prop
     }
   }
 }

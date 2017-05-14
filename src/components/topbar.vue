@@ -3,7 +3,7 @@
       <div class="row">
         <!-- <div class="top-bar-title">{{ nav.title }}</div> -->
         <div class="top-bar-left"> 
-            <menu-items :customClass="'dropdown menu'"></menu-items>
+            <menu-items :show-title="true" :customClass="'dropdown menu'"></menu-items>
         </div>
       </div>
     </div>

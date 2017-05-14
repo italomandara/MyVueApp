@@ -51,7 +51,7 @@ export default {
         nav.hero_class = ''
         nav.hero_image = this.intro.image_primary || this.intro.featured_image
         nav.page = {
-          'title': 'blog',
+          'title': this.$store.state.categories.post[category],
           'name': 'thoughts'
         }
       })
