@@ -37,6 +37,9 @@
             top: 0;
             bottom: 0;
         }
+        > li > a {
+            line-height: 2rem;
+        } 
     }
 }
 

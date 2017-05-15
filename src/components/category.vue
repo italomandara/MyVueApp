@@ -36,7 +36,7 @@ export default {
       var category = getCategoryIdFromSlug(this.$store.state.categories.post, cat)
       this.$http.get([window.DJANGO_URL, '/api/post/', '?ordering=-created_at&category=', category, '&format=json'].join('')).then(function (response) {
         this.posts = response.data
-        if (!this.posts.data.length) {
+        if (!this.posts.length) {
           this.error = {
             title: 'Sorry,',
             description: "couldn't find any posts in this category"

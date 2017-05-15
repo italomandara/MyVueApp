@@ -1,5 +1,4 @@
-@mixin masonry($masonry-columns, $masonry-gutter)
-{
+@mixin masonry($masonry-columns, $masonry-gutter) {
        -moz-column-count: $masonry-columns;
     -webkit-column-count: $masonry-columns;
             column-count: $masonry-columns;
@@ -29,8 +28,7 @@
     }
 }
 
-@mixin s-transition($transition, $transition2: null)
-{
+@mixin s-transition($transition, $transition2: null) {
     @if ($transition2) {
         -webkit-transition: $transition, $transition2;
         transition: $transition, $transition2;

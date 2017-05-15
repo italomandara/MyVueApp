@@ -1,10 +1,9 @@
 <template>
   <router-link class="large margin bottom container-link" :to="{ name: 'Post', params: { slug: post.slug }}">
     <div :class="['category-', slugify(getPostCategory(post.category)), ' tag-', post.tag, 'place-wrap small margin bottom']">
-      <h5>
-        <tooltip :tooltip="postTooltip"></tooltip>
-      </h5>
-
+        <tooltip class="standout-text no-color-hover place place-top" :tooltip="postTooltip">
+          <h5>{{ post.title }}</h5>
+        </tooltip>
       <img class="js-lazy" :src="post.featured_image" data-original="post.featured_image">
       <p class="place place-bottom pad">
         <span class="secondary label">{{ getPostCategory(post.category) }}</span>
@@ -33,9 +32,7 @@
       postTooltip () {
         return {
           placement: 'bottom',
-          title: this.post.subtitle + ' by ' + this.post.author + ' ' + this.date(this.post.created_at),
-          text: this.post.title,
-          class: 'standout-text no-color-hover place place-top'
+          title: this.post.subtitle + ' by ' + this.post.author + ' ' + this.date(this.post.created_at)
         }
       }
 

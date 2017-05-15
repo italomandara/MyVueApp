@@ -1,5 +1,5 @@
 <template>
-  <ul :class="customClass" data-dropdown-menu>
+  <ul data-dropdown-menu>
     <li v-if="showTitle" class="menu-text">{{ nav.title }}</li>
     <li>
       <router-link to="/">Home</router-link>
@@ -16,7 +16,7 @@
     </li>
     <li>
       <a v-if="nav.person.available" href="javascript:void(0)" @click="open()">Contact</a>
-      <tooltip v-else :tooltip="contactTooltip"></tooltip>
+      <tooltip v-else :tooltip="contactTooltip">Contact</tooltip>
     </li>
   </ul>
 </template>
@@ -54,7 +54,6 @@ export default {
       return {
         href: 'javascript:void(0)',
         placement: 'top',
-        text: 'Contact',
         title: this.$store.state.nav.person.unavailable_msg
       }
     }

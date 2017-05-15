@@ -3,7 +3,7 @@
       <div class="row">
         <!-- <div class="top-bar-title">{{ nav.title }}</div> -->
         <div class="top-bar-left"> 
-            <menu-items :show-title="true" :customClass="'dropdown menu'"></menu-items>
+            <menu-items :show-title="true" class="dropdown menu"></menu-items>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@ export default {
       .get([window.DJANGO_URL, '/api/person/', '?name=Italo&format=json'].join('')).then(
         (response) => {
           this.$store.state.nav.person = response.data[0]
-          this.$store.state.nav.title = [this.$store.state.nav.person.name, this.$store.state.nav.person.lastname, "'s resume"].join('')
+          this.$store.state.nav.title = [this.$store.state.nav.person.name, ' ', this.$store.state.nav.person.lastname, "'s resume"].join('')
         })
     return {
       hostname: window.location.hostname

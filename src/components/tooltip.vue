@@ -1,5 +1,7 @@
 <template>
-  <a :href="tooltip.href" :class="['has-tip ', tooltip.placement, tooltip.class]" :title="tooltip.title" data-tooltip aria-haspopup="true">{{ tooltip.text }}</a>
+  <a :href="tooltip.href" :class="['has-tip ', tooltip.placement]" :title="tooltip.title" data-tooltip aria-haspopup="true">
+  	<slot></slot>
+  </a>
 </template>
 
 <script>

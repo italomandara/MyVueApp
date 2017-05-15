@@ -11,7 +11,7 @@
 
 @import './myresume/partials/variables';
 @import './myresume/partials/mixins';
-// @import './myresume/overrides/dropdown-menu_override';
+@import './myresume/overrides/dropdown-menu_override';
 // @import 'myresume/overrides/accordion-menu_override';
 
 @include foundation-everything();
