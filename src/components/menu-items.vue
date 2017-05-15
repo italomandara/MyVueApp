@@ -15,7 +15,7 @@
       </ul>
     </li>
     <li>
-      <a v-if="nav.person.available" href="javascript:void(0)" @click="open()">Contact</a>
+      <modal v-if="nav.person.available" :modal="contact" class="topbar-menu-item"><contact-form/></modal>
       <tooltip v-else :tooltip="contactTooltip">Contact</tooltip>
     </li>
   </ul>
@@ -23,6 +23,8 @@
 
 <script>
 import tooltip from './tooltip.vue'
+import modal from './modal.vue'
+import contactForm from './contact-form.vue'
 export default {
   mixins: [
     // eslint-disable-next-line
@@ -31,15 +33,19 @@ export default {
   name: 'menuItems',
   props: ['customClass', 'showTitle'],
   components: {
-    tooltip
+    tooltip,
+    modal,
+    contactForm
   },
   data () {
     return {
-      nav: this.$store.state.nav
+      nav: this.$store.state.nav,
+      contact: {
+        id: 'contact-form',
+        button: 'Contact',
+        title: 'Please Fill in the contact form'
+      }
     }
-  },
-  methods: {
-
   },
   computed: {
     categories () {
