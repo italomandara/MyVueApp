@@ -51,13 +51,74 @@
     data () {
       return {
         form: {
+          'id': {
+            'type': 'integer',
+            'required': false,
+            'read_only': true,
+            'label': 'ID'
+          },
+          'name': {
+            'type': 'string',
+            'required': true,
+            'read_only': false,
+            'label': 'Name',
+            'max_length': 100
+          },
+          'company': {
+            'type': 'string',
+            'required': false,
+            'read_only': false,
+            'label': 'Company',
+            'max_length': 100
+          },
+          'phone': {
+            'type': 'string',
+            'required': false,
+            'read_only': false,
+            'label': 'Phone',
+            'max_length': 15
+          },
+          'email': {
+            'type': 'string',
+            'required': true,
+            'read_only': false,
+            'label': 'Email',
+            'max_length': 100
+          },
+          'message': {
+            'type': 'string',
+            'required': true,
+            'read_only': false,
+            'label': 'Message',
+            'max_length': 1000
+          },
           errors: []
         },
         required: 'This field is required',
         phone: 'Must be a valid phone number',
         email: 'Must be a valid email',
-        captcha: 'Check if your captcha code is correct'
+        captcha: 'Check if your captcha code is correct',
+        model: {}
       }
+    },
+    mounted () {
+      // this.$http({ url: window.DJANGO_URL + '/api/contact/?format=json', method: 'OPTIONS', withCredentials: true }).then(function (response) {
+        // this.form = response.data.actions.POST
+      this.form.message.type = 'textarea'
+      this.form.email.type = 'email'
+      // })
+      // eslint-disable-next-line
+      $(this.$el).foundation()
+    },
+    methods: {
+      // postJSON (isValid, e) {
+      //   this.submitted = true
+      //   if (isValid) {
+      //     postJSON(this.model, url, function (data) {
+      //       $('#contact-thank-you').foundation('open')
+      //     })
+      //   }
+      // }
     }
   }
 </script>

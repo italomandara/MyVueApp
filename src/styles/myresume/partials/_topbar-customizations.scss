@@ -10,9 +10,9 @@
     }
 }
 
-.top-bar .menu > li > a{
+.top-bar .menu > li > a, .topbar-menu-item > a{
     color: $dark-gray;
-    font-size: rem-calc(14);
+    font-size: $menu-item-font-size;
     font-weight: $global-weight-normal;
     &.active{
         color: $black;
@@ -20,6 +20,10 @@
     &:hover{
         color: $primary-color;
     }
+}
+
+.topbar-menu-item > a{
+    padding: $menu-item-padding;
 }
 
 .top-bar .is-dropdown-submenu{
