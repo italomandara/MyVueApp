@@ -1,13 +1,12 @@
 <template>
   <label>
     <span>{{ field.label }}<span v-if="field.required">&nbsp;*</span></span>
-      <input v-if="isInput(field)" :name="field.name" :type="field.type" :value="field.value" />
-      <textarea v-else-if="isTextarea(field)" :name="field.name" :value="field.value"/>
-      <select v-else-if="isSelect(field)">
+      <input v-if="isInput(field)" :name="field.name" :type="field.type" :value="field.value" :required="field.required" @input="updateValue($event.target.value)"/>
+      <textarea v-else-if="isTextarea(field)" :name="field.name" :value="field.value" :required="field.required" @input="updateValue($event.target.value)"/>
+      <select v-else-if="isSelect(field)" :required="field.required" @change="updateValue($event.target.value)">
         <option v-for="option in field.options" value="option.value">{{ option.name }}</option>
       </select>
-
-    <span class="form-error" :class="{ 'is-visible': field.error }">
+    <span class="form-error">
       {{ abide_error }}
     </span>
   </label>
@@ -30,6 +29,9 @@
       },
       isSelect (field) {
         return (field.type === 'select')
+      },
+      updateValue (value) {
+        this.$emit('input', value)
       }
     }
   }

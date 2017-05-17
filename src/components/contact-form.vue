@@ -1,5 +1,5 @@
 <template>
-  <form id="mailform" data-callback="openThankYou" method="POST" class="js-ajaxform" style="width: 100%;" data-abide novalidate>
+  <form id="mailform" data-abide novalidate @submit.prevent="submit">
       <p>
           To send me a contact request please fill in all fields and submit the form. Fields marked with a
           <span class="hilight">*</span>
@@ -10,23 +10,23 @@
       </div>
       <div class="row">
           <div class="medium-6 column">
-              <field :field="form.name" abide-error="required" />
+              <field :field="form.name" :abide-error="required" v-model="model.name"/>
           </div>
           <div class="medium-6 column">
-              <field :field="form.phone" abide-error="phone" />
+              <field :field="form.phone" :abide-error="phone" v-model="model.phone"/>
           </div>
       </div>
       <div class="row margin bottom">
           <div class="medium-6 column">
-              <field :field="form.company" />
+              <field :field="form.company" v-model="model.company"/>
           </div>
           <div class="medium-6 column">
-              <field :field="form.email" abide-error="email" />
+              <field :field="form.email" :abide-error="email" v-model="model.email" />
           </div>
       </div>
       <div class="row">
           <div class="small-12 column">
-              <field :field="form.message" abide-error="required" />
+              <field :field="form.message" :abide-error="required" v-model="model.message" />
           </div>
           <div class="small-12 medium-2 column">
               <button class="button expand" type="submit" name="submit">Send</button>
@@ -51,72 +51,44 @@
     data () {
       return {
         form: {
-          'id': {
-            'type': 'integer',
-            'required': false,
-            'read_only': true,
-            'label': 'ID'
-          },
-          'name': {
-            'type': 'string',
-            'required': true,
-            'read_only': false,
-            'label': 'Name',
-            'max_length': 100
-          },
-          'company': {
-            'type': 'string',
-            'required': false,
-            'read_only': false,
-            'label': 'Company',
-            'max_length': 100
-          },
-          'phone': {
-            'type': 'string',
-            'required': false,
-            'read_only': false,
-            'label': 'Phone',
-            'max_length': 15
-          },
-          'email': {
-            'type': 'string',
-            'required': true,
-            'read_only': false,
-            'label': 'Email',
-            'max_length': 100
-          },
-          'message': {
-            'type': 'string',
-            'required': true,
-            'read_only': false,
-            'label': 'Message',
-            'max_length': 1000
-          },
-          errors: []
+          errors: [],
+          isvalid: false,
+          submitted: false
         },
         required: 'This field is required',
         phone: 'Must be a valid phone number',
         email: 'Must be a valid email',
         captcha: 'Check if your captcha code is correct',
-        model: {}
+        model: {
+          name: '',
+          phone: '',
+          company: '',
+          email: '',
+          message: ''
+        }
       }
     },
-    mounted () {
-      // this.$http({ url: window.DJANGO_URL + '/api/contact/?format=json', method: 'OPTIONS', withCredentials: true }).then(function (response) {
-        // this.form = response.data.actions.POST
-      this.form.message.type = 'textarea'
-      this.form.email.type = 'email'
-      // })
-      // eslint-disable-next-line
-      $(this.$el).foundation()
+    beforeMount () {
+      this.$http({url: window.DJANGO_URL + '/api/contact/?format=json', method: 'options'}).then(function (response) {
+        this.form = response.data.actions.POST
+        this.form.message.type = 'textarea'
+        this.form.email.type = 'email'
+        this.form.errors = []
+      })
     },
     methods: {
-      // postJSON (isValid, e) {
-      //   this.submitted = true
-      //   if (isValid) {
-      //     postJSON(this.model, url, function (data) {
-      //       $('#contact-thank-you').foundation('open')
-      //     })
+      submit (event) {
+        // eslint-disable-next-line
+        var formValidator = new Foundation.Abide($(event.target))
+        this.form.isValid = formValidator.validateForm()
+        if (this.form.isValid) {
+
+        }
+      }
+      // postJSON (model) {
+      //   this.form.submitted = true
+      //   if (this.form.isValid) {
+      //     console.log('submit')
       //   }
       // }
     }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a href="javascript:void(0)" :data-open="modal.id">{{ modal.button }}</a>
+    <a href="javascript:void(0)" @click="openModal">{{ modal.button }}</a>
     <div class="text-center reveal vertical-center-container" :class="[modal.classes]" text-center :id="modal.id" data-reveal data-animation-in="fade-in" data-animation-out="fade-out">
       <div class="vertical-center modal-wrapper">
         <div class="modal-title">   
@@ -18,10 +18,13 @@
 <script>
   export default {
     name: 'modal',
-    mixins: [
-      // eslint-disable-next-line
-      require ('@/mixins/foundation')
-    ],
-    props: ['modal']
+    props: ['modal'],
+    methods: {
+      openModal () {
+        // eslint-disable-next-line
+        var modal = new Foundation.Reveal($(this.$el).find('[data-reveal]'))
+        modal.open()
+      }
+    }
   }
 </script>
