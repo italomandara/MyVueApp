@@ -13,7 +13,7 @@
               <field :field="form.name" v-model="model.name"/>
           </div>
           <div class="medium-6 column">
-              <field :field="form.phone" :abide-error="errors.phone" v-model="model.phone"/>
+              <field :field="form.phone" v-model="model.phone"/>
           </div>
       </div>
       <div class="row margin bottom">
@@ -21,7 +21,7 @@
               <field :field="form.company" v-model="model.company"/>
           </div>
           <div class="medium-6 column">
-              <field :field="form.email" :abide-error="errors.email" v-model="model.email" />
+              <field :field="form.email" v-model="model.email" />
           </div>
       </div>
       <div class="row">
@@ -55,11 +55,6 @@
           isvalid: false,
           submitted: false
         },
-        errors: {
-          phone: 'Must be a valid phone number',
-          email: 'Must be a valid email',
-          captcha: 'Check if your captcha code is correct'
-        },
         model: {
           name: '',
           phone: '',
@@ -74,6 +69,9 @@
         this.form = response.data.actions.POST
         this.form.message.type = 'textarea'
         this.form.email.type = 'email'
+        this.form.email.error = 'Must be a valid email'
+        this.form.phone.error = 'Must be a valid phone number'
+        this.form.phone.pattern = '[0-9]+'
         this.form.errors = []
       })
     },
