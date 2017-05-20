@@ -10,10 +10,10 @@
       </div>
       <div class="row">
           <div class="medium-6 column">
-              <field :field="form.name" :abide-error="required" v-model="model.name"/>
+              <field :field="form.name" v-model="model.name"/>
           </div>
           <div class="medium-6 column">
-              <field :field="form.phone" :abide-error="phone" v-model="model.phone"/>
+              <field :field="form.phone" :abide-error="errors.phone" v-model="model.phone"/>
           </div>
       </div>
       <div class="row margin bottom">
@@ -21,12 +21,12 @@
               <field :field="form.company" v-model="model.company"/>
           </div>
           <div class="medium-6 column">
-              <field :field="form.email" :abide-error="email" v-model="model.email" />
+              <field :field="form.email" :abide-error="errors.email" v-model="model.email" />
           </div>
       </div>
       <div class="row">
           <div class="small-12 column">
-              <field :field="form.message" :abide-error="required" v-model="model.message" />
+              <field :field="form.message" v-model="model.message" />
           </div>
           <div class="small-12 medium-2 column">
               <button class="button expand" type="submit" name="submit">Send</button>
@@ -55,10 +55,11 @@
           isvalid: false,
           submitted: false
         },
-        required: 'This field is required',
-        phone: 'Must be a valid phone number',
-        email: 'Must be a valid email',
-        captcha: 'Check if your captcha code is correct',
+        errors: {
+          phone: 'Must be a valid phone number',
+          email: 'Must be a valid email',
+          captcha: 'Check if your captcha code is correct'
+        },
         model: {
           name: '',
           phone: '',

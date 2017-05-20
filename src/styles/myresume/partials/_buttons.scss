@@ -1,5 +1,5 @@
 .button.filter{
-	@extend .hollow;
+	@include button-hollow;
     color: $darker-gray;
     border-color: $darker-gray;
     &:hover {

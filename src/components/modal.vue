@@ -22,7 +22,7 @@
     methods: {
       openModal () {
         // eslint-disable-next-line
-        var modal = new Foundation.Reveal($(this.$el).find('[data-reveal]'))
+        var modal = new Foundation.Reveal($('#'+ this.modal.id))
         modal.open()
       }
     }
