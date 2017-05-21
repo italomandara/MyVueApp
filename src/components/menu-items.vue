@@ -51,11 +51,6 @@ export default {
     categories () {
       return this.$store.getters.getPostCategories
     },
-    open () {
-      return function () {
-        return ''
-      }
-    },
     contactTooltip () {
       return {
         href: 'javascript:void(0)',
