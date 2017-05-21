@@ -85,7 +85,8 @@
         this.form.email.type = 'email'
         this.form.email.error = 'Must be a valid email'
         this.form.phone.error = 'Must be a valid phone number'
-        this.form.phone.pattern = '[0-9]+'
+        // eslint-disable-next-line
+        this.form.phone.pattern = '\+[0-9]{15-20}'
         this.form.errors = []
       })
     },
