@@ -10,6 +10,11 @@
     }
 }
 
+.top-bar {
+    position: relative;
+    z-index: $topbar-index;
+}
+
 .top-bar .menu > li > a, .topbar-menu-item > a{
     color: $dark-gray;
     font-size: $menu-item-font-size;

@@ -9,6 +9,7 @@ import category from '@/components/category'
 Vue.use(Router)
 
 export default new Router({
+  linkActiveClass: 'active',
   routes: [{
     path: '/',
     name: 'Home',

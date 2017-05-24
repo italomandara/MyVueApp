@@ -36,6 +36,11 @@ export default {
     mobileTopbar
   },
   data () {
+    return {
+      SETTINGS: this.$store.state.SETTINGS
+    }
+  },
+  mounted () {
     this.$http
       .get([window.DJANGO_URL, '/api/s/', '?format=json'].join('')).then(
           (response) => {
@@ -48,11 +53,6 @@ export default {
           this.$store.state.categories = response.data
         }
       )
-    return {
-      SETTINGS: this.$store.state.SETTINGS
-    }
-  },
-  mounted () {
     // eslint-disable-next-line
     new Foundation.OffCanvas($('#offCanvasMenu'))
   }

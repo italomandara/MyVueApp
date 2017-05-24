@@ -22,8 +22,12 @@
     methods: {
       openModal () {
         // eslint-disable-next-line
-        var modal = new Foundation.Reveal($('#'+ this.modal.id))
-        modal.open()
+        var $modal = $('#' + this.modal.id)
+        if ($modal.length) {
+          // eslint-disable-next-line
+          var modal = new Foundation.Reveal($modal)
+          modal.open()
+        }
       }
     }
   }

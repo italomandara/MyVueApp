@@ -4,12 +4,12 @@
         <tooltip class="standout-text no-color-hover place place-top" :tooltip="postTooltip">
           <h5>{{ post.title }}</h5>
         </tooltip>
-      <img class="js-lazy" :src="post.featured_image" data-original="post.featured_image">
+      <img v-lazy="featured_image">
       <p class="place place-bottom pad">
         <span class="secondary label">{{ getPostCategory(post.category) }}</span>
       </p>
     </div>
-    <div class="">{{ post.body|truncate(100) }} <router-link :to="{ name: 'Post', params: { slug: post.slug }}">Read more.</router-link></div>
+    <div>{{ post.body|truncate(100) }} <router-link :to="{ name: 'Post', params: { slug: post.slug }}">Read more.</router-link></div>
   </router-link>
 </template>
 
@@ -25,7 +25,7 @@
     methods: {
       slugify,
       getPostCategory (a) {
-        return this.$store.state.categories.post[a]
+        return this.$store.getters.getPostCategory(a)
       }
     },
     computed: {
@@ -34,8 +34,13 @@
           placement: 'bottom',
           title: this.post.subtitle + ' by ' + this.post.author + ' ' + this.date(this.post.created_at)
         }
+      },
+      featured_image () {
+        return {
+          src: this.$store.getters.getResized(this.post.featured_image, 'width:700'),
+          loading: this.$store.getters.getEffect(this.post.featured_image, 'resize=width:50/output=q:30/')
+        }
       }
-
     },
     mounted () {
       // eslint-disable-next-line

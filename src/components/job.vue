@@ -20,7 +20,7 @@
     props: ['job'],
     methods: {
       getJobCategory (a) {
-        return this.$store.state.categories.job[a]
+        return this.$store.getters.getJobCategory(a)
       }
     }
   }

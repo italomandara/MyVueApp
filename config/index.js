@@ -8,7 +8,7 @@ module.exports = {
     // assetsRoot: path.resolve(__dirname, '../dist'),
     index: path.resolve('../mysite/static/vue/index.html'),
     assetsRoot: path.resolve('../mysite/static/vue'),
-    assetsSubDirectory: 'static',
+    assetsSubDirectory: '',
     assetsPublicPath: '../mysite/static/vue/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as

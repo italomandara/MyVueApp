@@ -10,9 +10,11 @@ import store from './store'
 import marked from 'marked'
 import moment from 'moment'
 import Vue2Filters from 'vue2-filters'
+import VueLazyload from 'vue-lazyload'
 
 Vue.use(Vue2Filters)
 Vue.use(VueResource)
+Vue.use(VueLazyload)
 
 window.jQuery = jQuery
 window.$ = jQuery
@@ -56,7 +58,7 @@ Vue.filter('date', function (value, format) {
 })
 
 /* eslint-disable no-new */
-window.MyCVApp = new Vue({
+new Vue({
   el: '#app',
   router,
   store,

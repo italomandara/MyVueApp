@@ -22,7 +22,7 @@
     props: ['skill'],
     methods: {
       getSkillCategory (a) {
-        return this.$store.state.categories.skill[a]
+        return this.$store.getters.getSkillCategory(a)
       },
       slugify (a) {
         return slugify(a)

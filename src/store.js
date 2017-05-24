@@ -27,6 +27,24 @@ export default new Vuex.Store({
     getSkillCategories (state) {
       return getCategories(state.categories, 'skill')
     },
+    getJobCategories (state) {
+      return getCategories(state.categories, 'job')
+    },
+    getPostCategory (state) {
+      return (a) => {
+        return (!!state.categories.post && state.categories.post[a]) || ''
+      }
+    },
+    getSkillCategory (state) {
+      return (a) => {
+        return (!!state.categories.skill && state.categories.skill[a]) || ''
+      }
+    },
+    getJobCategory (state) {
+      return (a) => {
+        return (!!state.categories.job && state.categories.job[a]) || ''
+      }
+    },
     getCategoriesSlugs (state) {
       return (mymodel) => {
         var obj = {}
@@ -36,6 +54,18 @@ export default new Vuex.Store({
           obj[idx] = {slug: slugify(cat), name: cat}
         }
         return obj
+      }
+    },
+    getEffect (state) {
+      return (value, arg) => {
+        var outputString = !!state.SETTINGS && 'https://process.filestackapi.com/' + state.SETTINGS.FILEPICKER_API_KEY + '/' + encodeURI(arg) + '/' + value || value
+        return outputString
+      }
+    },
+    getResized (state) {
+      return (value, arg) => {
+        var outputString = !!state.SETTINGS && 'https://process.filestackapi.com/' + state.SETTINGS.FILEPICKER_API_KEY + '/resize=' + encodeURI(arg) + '/' + value || value
+        return outputString
       }
     }
   }

@@ -1,13 +1,9 @@
 @include responsiveMasonry;
 
 .masonry {
-    > div {
+    > div, > .container-link {
         display: inline-block;
         width: 100%;
         margin-bottom: $my-gutter;
-    }
-
-    > div.ng-binding {
-        display: inline !important;
     }
 }

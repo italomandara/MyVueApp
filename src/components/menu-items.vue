@@ -16,13 +16,18 @@
     </li>
     <li>
       <modal v-if="nav.person.available" :modal="contact" class="topbar-menu-item"><contact-form/></modal>
-      <tooltip v-else :tooltip="contactTooltip">Contact</tooltip>
+      <modal v-else :modal="nocontactModal" class="topbar-menu-item">
+        <p class="margin">{{ nocontact.title }}</p>
+        <p>
+          <a class="button margin none" data-close aria-label="Close modal" href="javascript:void(0)">OK</a>
+          <a class="button secondary" data-close aria-label="Close modal" href="javascript:void(0)">Not OK</a>
+        </p>
+      </modal>
     </li>
   </ul>
 </template>
 
 <script>
-import tooltip from './tooltip.vue'
 import modal from './modal.vue'
 import contactForm from './contact-form.vue'
 export default {
@@ -33,7 +38,6 @@ export default {
   name: 'menuItems',
   props: ['customClass', 'showTitle'],
   components: {
-    tooltip,
     modal,
     contactForm
   },
@@ -44,6 +48,16 @@ export default {
         id: 'contact-form',
         button: 'Contact',
         title: 'Please Fill in the contact form'
+      },
+      contactAnyway: {
+        id: 'contact-form',
+        button: 'Contact Anyway',
+        title: 'Please Fill in the contact form'
+      },
+      nocontactModal: {
+        id: 'no-contact-form',
+        button: 'Contact',
+        title: 'Not available'
       }
     }
   },
@@ -51,10 +65,8 @@ export default {
     categories () {
       return this.$store.getters.getPostCategories
     },
-    contactTooltip () {
+    nocontact () {
       return {
-        href: 'javascript:void(0)',
-        placement: 'top',
         title: this.$store.state.nav.person.unavailable_msg
       }
     }
