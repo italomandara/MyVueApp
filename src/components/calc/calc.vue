@@ -1,7 +1,9 @@
 <template>
   <div class="row">
     <!-- <div class="row-wrapper background background-color-3 margin bottom"> -->
-    <input class="calc-screen padding small-12 background-color-3" type="text" v-model="display">
+    <form action="" @submit.prevent="calculateResult">
+      <input class="calc-screen padding small-12 background-color-3" type="text" v-model.number="display">
+    </form>
     <div class="row collapse">
       <div class="small-3 column"><button @click="setMemory" class="calc-button large expanded">M+</button></div>
       <div class="small-3 column"><button @click="clearMemory" class="calc-button large expanded">M-</button></div>
@@ -100,7 +102,7 @@ export default {
           return r
         },
         per: function (a, b) {
-          var r = b === 0 ? 'error' : (a / b) * 100
+          var r = b === 0 ? 'error' : (a * b) / 100
           return r
         }
       }
@@ -141,16 +143,5 @@ export default {
     background-color: #BB8800;
   }
   .calc-screen, .calc-screen:focus {
-    background: -webkit-linear-gradient(-90deg, rgba(234,234,234,1) 0, rgba(234,234,234,1) 10%, rgba(234,234,234,1) 35%, rgba(206,206,206,1) 77%, rgba(206,206,206,1) 100%);
-    background: -moz-linear-gradient(180deg, rgba(234,234,234,1) 0, rgba(234,234,234,1) 10%, rgba(234,234,234,1) 35%, rgba(206,206,206,1) 77%, rgba(206,206,206,1) 100%);
-    background: linear-gradient(180deg, rgba(234,234,234,1) 0, rgba(234,234,234,1) 10%, rgba(234,234,234,1) 35%, rgba(206,206,206,1) 77%, rgba(206,206,206,1) 100%);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    -webkit-background-origin: padding-box;
-    background-origin: padding-box;
-    -webkit-background-clip: border-box;
-    background-clip: border-box;
-    -webkit-background-size: auto auto;
-    background-size: auto auto;
   }
 </style>

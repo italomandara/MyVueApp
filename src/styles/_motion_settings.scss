@@ -21,7 +21,7 @@ $motion-ui-states: (
 $motion-ui-speeds: (
   default: 500ms,
   slow: 750ms,
-  fast: 250ms,
+  fast: 150ms,
 ) !default;
 
 /// Default delay to add before motion, along with values for modifier classes to change the delay.

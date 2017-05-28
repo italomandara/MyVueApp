@@ -4,25 +4,30 @@
       <description :content="intro" :notitle="true" :customclass="'pad pad-vertical'"></description>
     </div>
     <div class="row">
-      <div class="small-2 column">
+      <div class="medium-2 column small margin bottom">
         <modal :modal="netflixapp"><netflix-app/></modal>
       </div>
-      <div class="small-2 column">
+      <div class="medium-2 column small margin bottom">
         <modal :modal="calc"><calc/></modal>
       </div>
-      <div class="small-8 column"></div>
+      <div class="medium-2 column small margin bottom">
+        <modal :modal="marvelapp"><marvel-app/></modal>
+      </div>
+      <div class="medium-6 column"></div>
     </div>
   </div>
 </template>
 
 <script>
 import netflixApp from './netflixapp/netflixapp.vue'
+import marvelApp from './marvelapp/marvelapp.vue'
 import calc from './calc/calc.vue'
 import modal from './modal.vue'
 import description from './description.vue'
 export default {
   components: {
     netflixApp,
+    marvelApp,
     modal,
     description,
     calc
@@ -40,12 +45,24 @@ export default {
           animationOut: 'scale-out-down',
           overlay: false
         },
-        title: 'Find movies...',
+        title: 'NetflixRoulette API',
+        classes: 'small app-modal fast bounce-in'
+      },
+      marvelapp: {
+        id: 'marvelflixapp',
+        button: 'Marvel App',
+        buttonClass: 'button expanded',
+        options: {
+          animationIn: 'scale-in-up',
+          animationOut: 'scale-out-down',
+          overlay: false
+        },
+        title: 'Search for a Marvel hero',
         classes: 'small app-modal fast bounce-in'
       },
       calc: {
         id: 'calc',
-        button: 'Calulator',
+        button: 'Calculator',
         buttonClass: 'button expanded',
         options: {
           animationIn: 'scale-in-up',

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <a v-if="!modal.hideButton" :class="[modal.buttonClass]" href="javascript:void(0)" @click="openModal">{{ modal.button }}</a>
     <div class="text-center reveal vertical-center-container" :class="[modal.classes]" text-center :id="modal.id" data-reveal data-animation-in="fade-in" data-animation-out="fade-out">
       <div class="vertical-center modal-wrapper">
         <div class="modal-title">   
@@ -12,6 +11,7 @@
         <div class="modal-content"><slot></slot></div>
       </div>
     </div>
+    <a v-if="!modal.hideButton" :class="[modal.buttonClass]" href="javascript:void(0)" @click="openModal">{{ modal.button }}</a>
   </div>
 </template>
 
