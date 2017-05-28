@@ -18,6 +18,7 @@
         <router-view></router-view>
       </div>
     </div>
+    <router-view name="apps"></router-view>
   </div>
 </template>
 
@@ -40,7 +41,7 @@ export default {
       SETTINGS: this.$store.state.SETTINGS
     }
   },
-  mounted () {
+  beforeCreate () {
     this.$http
       .get([window.DJANGO_URL, '/api/s/', '?format=json'].join('')).then(
           (response) => {
@@ -53,6 +54,8 @@ export default {
           this.$store.state.categories = response.data
         }
       )
+  },
+  mounted () {
     // eslint-disable-next-line
     new Foundation.OffCanvas($('#offCanvasMenu'))
   }

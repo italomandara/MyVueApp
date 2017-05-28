@@ -14,6 +14,9 @@
         <li v-for="item in categories" :key="item.slug"><router-link :to="{ name: 'Category', params: { category: item.slug }}">{{ item.name }}</router-link></li>
       </ul>
     </li>
+    <li style="position:relative" role="menuitem" aria-expanded="false" aria-label="Apps">
+      <router-link to="/apps/">Apps</router-link>
+    </li>
     <li>
       <modal v-if="nav.person.available" :modal="contact" class="topbar-menu-item"><contact-form/></modal>
       <modal v-else :modal="nocontactModal" class="topbar-menu-item">

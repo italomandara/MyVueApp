@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a v-if="!modal.hideButton" href="javascript:void(0)" @click="openModal">{{ modal.button }}</a>
+    <a v-if="!modal.hideButton" :class="[modal.buttonClass]" href="javascript:void(0)" @click="openModal">{{ modal.button }}</a>
     <div class="text-center reveal vertical-center-container" :class="[modal.classes]" text-center :id="modal.id" data-reveal data-animation-in="fade-in" data-animation-out="fade-out">
       <div class="vertical-center modal-wrapper">
         <div class="modal-title">   
@@ -24,8 +24,9 @@
         // eslint-disable-next-line
         var $modal = $('#' + this.modal.id)
         if ($modal.length) {
+          var options = this.modal.options || {}
           // eslint-disable-next-line
-          var modal = new Foundation.Reveal($modal)
+          var modal = new Foundation.Reveal($modal, options)
           modal.open()
         }
       }

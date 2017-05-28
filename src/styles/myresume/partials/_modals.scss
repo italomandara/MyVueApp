@@ -23,15 +23,20 @@
         box-shadow: none;
     }
 
-    .row {
+    &:not(.app-modal) >.row {
         margin: {
             left: -$my-gutter/2;
             right: -$my-gutter/2;
         } 
     }
     @extend .vertical-center-container;
-    [ng-transclude]{
-        @extend .vertical-center;
+    &.app-modal .modal-wrapper{
+        box-shadow: $my-shadow;
+        border-radius: rem-calc(4);
+        overflow: hidden;
+        .modal-content {
+            padding: 0;        
+        }
     }
 }
 .modal-wrapper{

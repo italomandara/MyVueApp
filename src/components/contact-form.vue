@@ -1,5 +1,5 @@
 <template>
-  <form id="mailform" data-abide novalidate @submit.prevent="submit">
+  <form id="mailform" class="row" data-abide novalidate @submit.prevent="submit">
       <p>
           To send me a contact request please fill in all fields and submit the form. Fields marked with a
           <span class="hilight">*</span>

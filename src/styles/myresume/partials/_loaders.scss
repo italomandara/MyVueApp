@@ -10,3 +10,7 @@
     @extend %loader;
     position: fixed;
 }
+
+[v-cloak] {
+	display: none;
+}

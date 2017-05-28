@@ -5,6 +5,8 @@ import more from '@/components/more'
 import thoughts from '@/components/thoughts'
 import post from '@/components/post'
 import category from '@/components/category'
+import apps from '@/components/apps'
+import netflixapp from '@/components/netflixapp/netflixapp'
 
 Vue.use(Router)
 
@@ -30,5 +32,13 @@ export default new Router({
     path: '/thoughts/categories/:category',
     name: 'Category',
     component: category
+  }, {
+    path: '/apps/netflix',
+    name: 'NetflixApp',
+    component: netflixapp
+  }, {
+    path: '/apps/',
+    name: 'Apps',
+    component: apps
   }]
 })
