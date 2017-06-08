@@ -7,7 +7,7 @@
           <span aria-hidden="true">&times;</span>
         </a>
         <!-- Menu -->
-        <menu-items class="mobile-ofc vertical menu"></menu-items>
+        <menu-items class="mobile-ofc vertical menu" :contact-modal-id-variant="'mobile'"></menu-items>
       </div>
       <div class="off-canvas-content" data-offcanvas-content>
         <hero></hero>

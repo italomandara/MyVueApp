@@ -4,16 +4,10 @@
       <description :content="intro" :notitle="true" :customclass="'pad pad-vertical'"></description>
     </div>
     <div class="row">
-      <div class="medium-2 column small margin bottom">
         <modal :modal="netflixapp"><netflix-app/></modal>
-      </div>
-      <div class="medium-2 column small margin bottom">
         <modal :modal="calc"><calc/></modal>
-      </div>
-      <div class="medium-2 column small margin bottom">
         <modal :modal="marvelapp"><marvel-app/></modal>
-      </div>
-      <div class="medium-6 column"></div>
+        <div class="is_hidden"></div>
     </div>
   </div>
 </template>
@@ -39,31 +33,31 @@ export default {
       netflixapp: {
         id: 'netflixapp',
         button: 'Netflix App',
-        buttonClass: 'button expanded',
+        buttonClass: 'button',
         options: {
           animationIn: 'scale-in-up',
           animationOut: 'scale-out-down',
           overlay: false
         },
         title: 'NetflixRoulette API',
-        classes: 'small app-modal fast bounce-in'
+        classes: 'large app-modal fast bounce-in'
       },
       marvelapp: {
-        id: 'marvelflixapp',
+        id: 'marvelapp',
         button: 'Marvel App',
-        buttonClass: 'button expanded',
+        buttonClass: 'button',
         options: {
           animationIn: 'scale-in-up',
           animationOut: 'scale-out-down',
           overlay: false
         },
         title: 'Search for a Marvel hero',
-        classes: 'small app-modal fast bounce-in'
+        classes: 'large app-modal fast bounce-in'
       },
       calc: {
         id: 'calc',
         button: 'Calculator',
-        buttonClass: 'button expanded',
+        buttonClass: 'button',
         options: {
           animationIn: 'scale-in-up',
           animationOut: 'scale-out-down',

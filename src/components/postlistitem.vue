@@ -41,10 +41,6 @@
           loading: this.$store.getters.getEffect(this.post.featured_image, 'resize=width:50/output=q:30/')
         }
       }
-    },
-    mounted () {
-      // eslint-disable-next-line
-      $(this.$el).foundation()
     }
   }
 </script>

@@ -1,20 +1,12 @@
 <template>
-  <div class="card">
-    <div class="card-divider">
-      {{ hero.release_year }}
-    </div>
-    <div class="background background-color-1">
+  <div class="card marvel-app-card">
+    <a :href="hero.urls[0].url" target="_blank" class="background background-color-1">
       <img v-lazy="hero.thumbnail.path + '.' + hero.thumbnail.extension">
-    </div>
-    <div class="card-section">
+    </a>
+    <div class="card-section clearfix">
       <h5>{{ hero.name }}</h5>
       <p>{{ hero.description }}</p>
-      <button class="button secondary tiny margin none" @click="toggleInfo($event)">{{ info[hideInfo ? 1 : 0 ] }}</button>
-      <div class="is-hidden fast bounce-in margin top">
-        <small>
-          <div class="row" v-for="link in hero.urls"><div class="small-4 column">{{ link.type }}: </div> <a :href="link.url" class="small-8 column">go to {{ link.type }}</a></div>
-        </small>
-      </div>
+      <p v-for="link in hero.urls" class="margin none" ><a :href="link.url">{{ link.type }}</a></p>
     </div>
   </div>
 </template>
@@ -48,3 +40,17 @@ export default {
   }
 }
 </script>
+
+<style lang="css" scoped>
+  .marvel-app-card {
+    border-radius: 20px;
+  }
+  .card-section {
+    background: #b50f16;
+    color: white;
+  }
+  a {
+    color: white;
+  }
+</style>
+

@@ -38,10 +38,6 @@
         }
       }
     },
-    // mounted () {
-    //   // eslint-disable-next-line
-    //   $(this.$el).foundation()
-    // },
     beforeMount () {
       var nav = this.$store.state.nav
       this.$http.get([window.DJANGO_URL, '/api/post/', this.$route.params.slug, '/?format=json'].join('')).then(function (response) {

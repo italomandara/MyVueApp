@@ -39,7 +39,7 @@ export default {
     require ('@/mixins/foundation')
   ],
   name: 'menuItems',
-  props: ['customClass', 'showTitle'],
+  props: ['customClass', 'showTitle', 'contactModalId'],
   components: {
     modal,
     contactForm
@@ -48,17 +48,12 @@ export default {
     return {
       nav: this.$store.state.nav,
       contact: {
-        id: 'contact-form',
+        id: 'contact-form' + this.contactModalId,
         button: 'Contact',
         title: 'Please Fill in the contact form'
       },
-      contactAnyway: {
-        id: 'contact-form',
-        button: 'Contact Anyway',
-        title: 'Please Fill in the contact form'
-      },
       nocontactModal: {
-        id: 'no-contact-form',
+        id: 'no-contact-form' + this.contactModalId,
         button: 'Contact',
         title: 'Not available'
       }
